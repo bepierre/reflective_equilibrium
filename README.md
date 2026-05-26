@@ -30,6 +30,27 @@ pip install -e .
 cp .env.example .env       # add your OpenRouter key
 ```
 
+## The five trolley cases
+
+The system is seeded with these five raw scenarios (full text in
+`experiments/trolley.py`). No moral verdicts are baked in — the CommitmentFormer
+agent reads the cases and produces the initial commitments C₀.
+
+1. **Case 1 — Judge.** A judge can frame an innocent person to satisfy a mob and save five
+   hostages from being killed. (Foot 1967.)
+2. **Case 2 — Trolley driver.** The driver of a runaway trolley can either continue toward
+   five workmen or steer onto a side track with one workman.
+3. **Case 3 — Bystander at the switch.** A bystander next to a switch can divert a runaway
+   trolley from five workmen onto one workman. (Thomson 1976.)
+4. **Case 4 — Fat man on the bridge.** A bystander on a bridge can push a heavy man onto the
+   track to stop the trolley, killing the heavy man but saving five workmen.
+5. **Case 5 — Three-way switch.** A bystander can do nothing (five die), throw the switch one
+   way (one dies), or throw the switch the other way (five die on a different track).
+
+The philosophically interesting tension is between Case 3 (intuitively permissible diversion)
+and Case 4 (intuitively impermissible pushing) — both kill one to save five, but feel morally
+different. The RE process is what's supposed to articulate why.
+
 ## Run the trolley experiment
 
 ```bash
