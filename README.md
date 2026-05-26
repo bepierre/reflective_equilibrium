@@ -106,8 +106,12 @@ experiments/
 runs/            # JSON traces + markdown writeups
 ```
 
-## Source documents
+## Source references
 
-- `RP.pdf` — research plan framing the project.
-- `formal_re.pdf` — Beisbart et al.'s formal RE.
-- `trolley.pdf` — Rechnitzer's trolley case study.
+- Beisbart, C., Betz, G., & Brun, G. — *Making Reflective Equilibrium Precise: A
+  Formal Model*. Formal model of RE: sentence pool, commitments, theory, account /
+  systematicity / faithfulness, equilibration as alternating optimization.
+- Rechnitzer, T. — Reconstructs Thomson's trolley argument as an RE process,
+  five cases plus an emerging case variant, eight equilibration steps.
+
+PDFs not redistributed in this repo.

@@ -8,3 +8,6 @@ dist/
 
 # debug-only run artifacts; keep .json and .md
 runs/*.log
+
+# source PDFs are not redistributed
+*.pdf
