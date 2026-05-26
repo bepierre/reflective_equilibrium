@@ -1,0 +1,620 @@
+{
+  "final_state": {
+    "commitments": [
+      {
+        "id": "IC1",
+        "text": "the judge MUST NOT frame the innocent person.",
+        "origin": "initial"
+      },
+      {
+        "id": "IC2",
+        "text": "the driver MUST steer onto the side track.",
+        "origin": "initial"
+      },
+      {
+        "id": "IC3",
+        "text": "the bystander MUST throw the switch.",
+        "origin": "initial"
+      },
+      {
+        "id": "IC4",
+        "text": "the bystander MUST NOT push the heavy man.",
+        "origin": "initial"
+      },
+      {
+        "id": "IC5",
+        "text": "the bystander MAY throw the switch to divert the trolley.",
+        "origin": "initial"
+      }
+    ],
+    "theory": [
+      {
+        "id": "P1",
+        "text": "The judge MUST NOT frame the innocent person."
+      },
+      {
+        "id": "P2",
+        "text": "The driver MUST steer onto the side track."
+      },
+      {
+        "id": "P3",
+        "text": "The bystander MUST throw the switch."
+      },
+      {
+        "id": "P4",
+        "text": "The bystander MUST NOT push the heavy man."
+      },
+      {
+        "id": "P5",
+        "text": "The bystander MAY throw the switch to divert the trolley."
+      }
+    ]
+  },
+  "initial_commitments": [
+    {
+      "id": "IC1",
+      "text": "the judge MUST NOT frame the innocent person.",
+      "origin": "initial"
+    },
+    {
+      "id": "IC2",
+      "text": "the driver MUST steer onto the side track.",
+      "origin": "initial"
+    },
+    {
+      "id": "IC3",
+      "text": "the bystander MUST throw the switch.",
+      "origin": "initial"
+    },
+    {
+      "id": "IC4",
+      "text": "the bystander MUST NOT push the heavy man.",
+      "origin": "initial"
+    },
+    {
+      "id": "IC5",
+      "text": "the bystander MAY throw the switch to divert the trolley.",
+      "origin": "initial"
+    }
+  ],
+  "weights": {
+    "account": 0.5,
+    "systematicity": 0.25,
+    "faithfulness": 0.25
+  },
+  "trace": [
+    {
+      "step": 1,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": []
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.5,
+          "rationale": "IC1=0.5: Theory T is silent on the framing of the innocent person.  |  IC2=0.5: Theory T does not address the action of the driver steering onto the side track.  |  IC3=0.5: Theory T does not provide guidance on whether the bystander should throw the switch.  |  IC4=0.5: Theory T does not contradict or support the action of the bystander pushing the heavy man.  |  IC5=0.5: Theory T is silent on the permissibility of the bystander throwing the switch."
+        },
+        "systematicity": {
+          "score": 0.0,
+          "rationale": "Theory T is empty and lacks any principles or unifying concepts, resulting in a score of 0.0 for systematicity."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment for the bystander to possibly throw the switch is held verbatim."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P1 clearly supports the commitment that the judge MUST NOT frame the innocent person.  |  IC2=1.0: P2 clearly supports the commitment that the driver MUST steer onto the side track.  |  IC3=1.0: P3 clearly supports the commitment that the bystander MUST throw the switch.  |  IC4=1.0: P4 clearly supports the commitment that the bystander MUST NOT push the heavy man.  |  IC5=1.0: P5 clearly supports the commitment that the bystander MAY throw the switch to divert the trolley."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains multiple principles (P1-P5) that are case-specific and do not provide a unifying framework. The presence of contradictory principles, such as P3 and P5, which both involve the bystander's actions but offer different directives, further reduces its systematicity."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment allowing the bystander to throw the switch to divert the trolley is held verbatim."
+        }
+      },
+      "z_before": 0.5,
+      "z_proposed": 0.85,
+      "accepted": true,
+      "proposal_diff": "Added five principles to address the current commitments."
+    },
+    {
+      "step": 1,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "EC1",
+            "text": "the bystander MAY choose to throw the switch to divert the trolley, depending on the situation.",
+            "origin": "emerging"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P1 clearly supports the commitment that the judge MUST NOT frame the innocent person.  |  IC2=1.0: P2 clearly supports the commitment that the driver MUST steer onto the side track.  |  IC3=1.0: P3 clearly supports the commitment that the bystander MUST throw the switch.  |  IC4=1.0: P4 clearly supports the commitment that the bystander MUST NOT push the heavy man.  |  IC5=1.0: P5 clearly supports the commitment that the bystander MAY throw the switch to divert the trolley."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains multiple principles (P1-P5) that are case-specific and do not provide a unifying framework. The presence of contradictory principles, such as P3 and P5, which both involve the bystander's actions but offer different directives, further reduces its systematicity."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment allowing the bystander to throw the switch to divert the trolley is held verbatim."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.9,
+          "rationale": "IC1=1.0: Theory T explicitly states that the judge MUST NOT frame the innocent person as per principle P1.  |  IC2=1.0: Theory T clearly supports that the driver MUST steer onto the side track according to principle P2.  |  IC3=1.0: Theory T asserts that the bystander MUST throw the switch, aligning with principle P3.  |  IC4=1.0: Theory T supports that the bystander MUST NOT push the heavy man as stated in principle P4.  |  EC1=0.5: Theory T allows for the bystander MAY throw the switch, but does not clarify the conditions, as per principle P5."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains multiple principles (P1-P5) that address different scenarios without a unifying framework, resulting in fragmentation. While some principles are clear, such as P1 and P4 being prohibitive, the mix of mandatory and optional actions (P5) adds inconsistency, lowering the overall systematicity score."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=reformulated (0.8): The commitment regarding the bystander throwing the switch is reformulated to allow for situational discretion."
+        }
+      },
+      "z_before": 0.85,
+      "z_proposed": 0.79,
+      "accepted": false,
+      "proposal_diff": "Reformulated commitment IC5 to clarify the bystander's action regarding the switch."
+    },
+    {
+      "step": 2,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST take action to prevent harm when possible, including throwing the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY take actions that divert harm, such as throwing the switch."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P1 clearly supports the commitment that the judge MUST NOT frame the innocent person.  |  IC2=1.0: P2 clearly supports the commitment that the driver MUST steer onto the side track.  |  IC3=1.0: P3 clearly supports the commitment that the bystander MUST throw the switch.  |  IC4=1.0: P4 clearly supports the commitment that the bystander MUST NOT push the heavy man.  |  IC5=1.0: P5 clearly supports the commitment that the bystander MAY throw the switch to divert the trolley."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains multiple principles (P1-P5) that are case-specific and do not provide a unifying framework. The presence of contradictory principles, such as P3 and P5, which both involve the bystander's actions but offer different directives, further reduces its systematicity."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment allowing the bystander to throw the switch to divert the trolley is held verbatim."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: Theory T explicitly states that the judge MUST NOT frame the innocent person (P1).  |  IC2=1.0: Theory T clearly supports that the driver MUST steer onto the side track (P2).  |  IC3=1.0: Theory T supports that the bystander MUST take action to prevent harm, including throwing the switch (P3).  |  IC4=1.0: Theory T states that the bystander MUST NOT push the heavy man (P4).  |  IC5=1.0: Theory T allows the bystander to take actions that divert harm, such as throwing the switch (P5)."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains several principles (P1-P5) that address specific scenarios, leading to fragmentation. While some principles are clear, such as P1 and P2, others (P3, P4, P5) introduce ambiguity regarding the bystander's duties, which detracts from overall coherence and unification."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment allowing the bystander to throw the switch is held verbatim."
+        }
+      },
+      "z_before": 0.85,
+      "z_proposed": 0.85,
+      "accepted": false,
+      "proposal_diff": "Generalize principles related to the bystander's actions to create a more systematic framework."
+    },
+    {
+      "step": 2,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "the bystander MAY throw the switch to divert the trolley.",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "the judge MUST NOT frame the innocent person.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "the driver MUST steer onto the side track.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "the bystander MUST throw the switch.",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "the bystander MUST NOT push the heavy man.",
+            "origin": "initial"
+          },
+          {
+            "id": "EC1",
+            "text": "the bystander MAY choose to throw the switch to divert the trolley, but is obligated to act in a way that minimizes harm.",
+            "origin": "emerging"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "The judge MUST NOT frame the innocent person."
+          },
+          {
+            "id": "P2",
+            "text": "The driver MUST steer onto the side track."
+          },
+          {
+            "id": "P3",
+            "text": "The bystander MUST throw the switch."
+          },
+          {
+            "id": "P4",
+            "text": "The bystander MUST NOT push the heavy man."
+          },
+          {
+            "id": "P5",
+            "text": "The bystander MAY throw the switch to divert the trolley."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P1 clearly supports the commitment that the judge MUST NOT frame the innocent person.  |  IC2=1.0: P2 clearly supports the commitment that the driver MUST steer onto the side track.  |  IC3=1.0: P3 clearly supports the commitment that the bystander MUST throw the switch.  |  IC4=1.0: P4 clearly supports the commitment that the bystander MUST NOT push the heavy man.  |  IC5=1.0: P5 clearly supports the commitment that the bystander MAY throw the switch to divert the trolley."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T contains multiple principles (P1-P5) that are case-specific and do not provide a unifying framework. The presence of contradictory principles, such as P3 and P5, which both involve the bystander's actions but offer different directives, further reduces its systematicity."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=preserved (1.0): The commitment allowing the bystander to throw the switch to divert the trolley is held verbatim."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.9,
+          "rationale": "IC1=1.0: Theory T clearly supports this commitment through principle P1.  |  IC2=1.0: Theory T clearly supports this commitment through principle P2.  |  IC3=1.0: Theory T clearly supports this commitment through principle P3.  |  IC4=1.0: Theory T clearly supports this commitment through principle P4.  |  EC1=0.5: Theory T is silent on the obligation to minimize harm, as P5 allows choice without obligation."
+        },
+        "systematicity": {
+          "score": 0.4,
+          "rationale": "Theory T presents several principles (P1-P5) that are case-specific and fragmented, lacking a unifying framework. While some principles are clear in their directives, the presence of both 'MUST' and 'MAY' in P5 creates inconsistency, reducing the overall systematicity of the theory."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment regarding the judge framing the innocent person is held verbatim.  |  IC2=preserved (1.0): The commitment for the driver to steer onto the side track is held verbatim.  |  IC3=preserved (1.0): The commitment for the bystander to throw the switch is held verbatim.  |  IC4=preserved (1.0): The commitment for the bystander not to push the heavy man is held verbatim.  |  IC5=reformulated (0.8): The commitment for the bystander to throw the switch is reformulated to include the option to choose while minimizing harm."
+        }
+      },
+      "z_before": 0.85,
+      "z_proposed": 0.79,
+      "accepted": false,
+      "proposal_diff": "Reformulate IC5 to clarify the bystander's options regarding the switch."
+    }
+  ],
+  "converged": true,
+  "final_z": 0.85
+}

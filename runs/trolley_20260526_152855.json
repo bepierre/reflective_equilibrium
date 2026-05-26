@@ -1,0 +1,1000 @@
+{
+  "final_state": {
+    "commitments": [
+      {
+        "id": "IC1",
+        "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+        "origin": "initial"
+      },
+      {
+        "id": "IC2",
+        "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+        "origin": "initial"
+      },
+      {
+        "id": "IC3",
+        "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+        "origin": "initial"
+      },
+      {
+        "id": "IC4",
+        "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+        "origin": "emerging"
+      },
+      {
+        "id": "IC5",
+        "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+        "origin": "initial"
+      }
+    ],
+    "theory": [
+      {
+        "id": "P1",
+        "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+      },
+      {
+        "id": "P2",
+        "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+      },
+      {
+        "id": "P3",
+        "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+      }
+    ]
+  },
+  "initial_commitments": [
+    {
+      "id": "IC1",
+      "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+      "origin": "initial"
+    },
+    {
+      "id": "IC2",
+      "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+      "origin": "initial"
+    },
+    {
+      "id": "IC3",
+      "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+      "origin": "initial"
+    },
+    {
+      "id": "IC4",
+      "text": "In Case4, the bystander MUST NOT push the heavy man onto the track to stop the trolley",
+      "origin": "initial"
+    },
+    {
+      "id": "IC5",
+      "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+      "origin": "initial"
+    }
+  ],
+  "weights": {
+    "account": 0.5,
+    "systematicity": 0.25,
+    "faithfulness": 0.25
+  },
+  "trace": [
+    {
+      "step": 1,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MUST NOT push the heavy man onto the track to stop the trolley",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": []
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MUST NOT push the heavy man onto the track to stop the trolley",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.5,
+          "rationale": "IC1=0.5: No explicit theory to support or contradict the commitment about not framing an innocent person.  |  IC2=0.5: No explicit theory to support or contradict the commitment about diverting a trolley to kill one to save five.  |  IC3=0.5: No explicit theory to support or contradict the commitment about switching tracks to kill one to save five.  |  IC4=0.5: No explicit theory to support or contradict the commitment about not pushing a heavy man onto tracks.  |  IC5=0.5: No explicit theory to support or contradict the commitment about inaction when both outcomes are morally unacceptable."
+        },
+        "systematicity": {
+          "score": 0.0,
+          "rationale": "An empty theory has no principles, no structure, and no explanatory power. It provides no systematic account of anything, resulting in the lowest possible systematicity score."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same in both initial and current sets of commitments.  |  IC2=preserved (1.0): The commitment remains exactly the same in both initial and current sets of commitments.  |  IC3=preserved (1.0): The commitment remains exactly the same in both initial and current sets of commitments.  |  IC4=preserved (1.0): The commitment remains exactly the same in both initial and current sets of commitments.  |  IC5=preserved (1.0): The commitment remains exactly the same in both initial and current sets of commitments."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.5,
+          "rationale": "IC1=0.0: Theory T directly contradicts IC1, as T suggests minimizing harm would permit framing an innocent person to save others  |  IC2=1.0: Theory T fully supports IC2 by endorsing action that minimizes harm to innocent persons (diverting from five to one)  |  IC3=1.0: Theory T fully supports IC3 by endorsing action that minimizes harm to innocent persons (diverting from five to one)  |  IC4=0.0: Theory T contradicts IC4, as T would suggest using the heavy man to minimize overall harm  |  IC5=0.5: Theory T is partially silent on IC5, offering no clear guidance when both outcomes seem morally unacceptable"
+        },
+        "systematicity": {
+          "score": 0.8,
+          "rationale": "Principle P1 provides a clear, generalized guideline for moral decision-making under complex circumstances, focusing on harm reduction and protection of innocent persons. The principle is concise, broadly applicable across different scenarios involving moral trade-offs, and establishes a systematic approach to ethical reasoning that prioritizes minimizing suffering."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC2=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC3=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC4=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC5=preserved (1.0): The commitment is held exactly as in the original set of commitments."
+        }
+      },
+      "z_before": 0.5,
+      "z_proposed": 0.7,
+      "accepted": true,
+      "proposal_diff": "Add a principle P1 about diverting harmful action to save more lives and reduce overall harm"
+    },
+    {
+      "step": 1,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MUST NOT push the heavy man onto the track to stop the trolley",
+            "origin": "initial"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.5,
+          "rationale": "IC1=0.0: Theory T directly contradicts IC1, as T suggests minimizing harm would permit framing an innocent person to save others  |  IC2=1.0: Theory T fully supports IC2 by endorsing action that minimizes harm to innocent persons (diverting from five to one)  |  IC3=1.0: Theory T fully supports IC3 by endorsing action that minimizes harm to innocent persons (diverting from five to one)  |  IC4=0.0: Theory T contradicts IC4, as T would suggest using the heavy man to minimize overall harm  |  IC5=0.5: Theory T is partially silent on IC5, offering no clear guidance when both outcomes seem morally unacceptable"
+        },
+        "systematicity": {
+          "score": 0.8,
+          "rationale": "Principle P1 provides a clear, generalized guideline for moral decision-making under complex circumstances, focusing on harm reduction and protection of innocent persons. The principle is concise, broadly applicable across different scenarios involving moral trade-offs, and establishes a systematic approach to ethical reasoning that prioritizes minimizing suffering."
+        },
+        "faithfulness": {
+          "score": 1.0,
+          "rationale": "IC1=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC2=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC3=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC4=preserved (1.0): The commitment is held exactly as in the original set of commitments.  |  IC5=preserved (1.0): The commitment is held exactly as in the original set of commitments."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.6,
+          "rationale": "IC1=0.0: Theory T's P1 would permit framing an innocent person to save hostages, directly contradicting the commitment to not frame an innocent person.  |  IC2=1.0: Theory T's P1 fully supports diverting the trolley to minimize harm by killing one instead of five, which aligns exactly with the commitment.  |  IC3=1.0: Theory T's P1 directly supports the bystander's permission to switch tracks to reduce overall harm from five to one deaths.  |  IC4=0.5: Theory T's P1 suggests minimizing harm, but the specific case of pushing a person is more morally complex and only partially aligned.  |  IC5=0.5: Theory T's P1 is somewhat silent on cases where both outcomes seem morally unacceptable, providing only partial guidance."
+        },
+        "systematicity": {
+          "score": 0.8,
+          "rationale": "Theory T provides a clear, generalized principle (P1) that offers a systematic approach to moral decision-making under complex circumstances. The principle establishes a unifying framework for evaluating actions based on harm reduction, which can be broadly applied across different ethical dilemmas involving potential harm to innocent persons."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains identical to the original, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to divert to save more lives.  |  IC3=preserved (1.0): The commitment is exactly the same, preserving the bystander's option to divert the trolley.  |  IC4=reformulated (0.8): The commitment has shifted from a strict prohibition to a permissive stance on sacrificing one life to save more.  |  IC5=preserved (1.0): The commitment remains unchanged, maintaining the stance of non-intervention in morally complex scenarios."
+        }
+      },
+      "z_before": 0.7,
+      "z_proposed": 0.74,
+      "accepted": true,
+      "proposal_diff": "REFORMULATE IC4 to align with theory T's harm minimization principle, permitting intervention in Case4 to save more lives"
+    },
+    {
+      "step": 2,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.6,
+          "rationale": "IC1=0.0: Theory T's P1 would permit framing an innocent person to save hostages, directly contradicting the commitment to not frame an innocent person.  |  IC2=1.0: Theory T's P1 fully supports diverting the trolley to minimize harm by killing one instead of five, which aligns exactly with the commitment.  |  IC3=1.0: Theory T's P1 directly supports the bystander's permission to switch tracks to reduce overall harm from five to one deaths.  |  IC4=0.5: Theory T's P1 suggests minimizing harm, but the specific case of pushing a person is more morally complex and only partially aligned.  |  IC5=0.5: Theory T's P1 is somewhat silent on cases where both outcomes seem morally unacceptable, providing only partial guidance."
+        },
+        "systematicity": {
+          "score": 0.8,
+          "rationale": "Theory T provides a clear, generalized principle (P1) that offers a systematic approach to moral decision-making under complex circumstances. The principle establishes a unifying framework for evaluating actions based on harm reduction, which can be broadly applied across different ethical dilemmas involving potential harm to innocent persons."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains identical to the original, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to divert to save more lives.  |  IC3=preserved (1.0): The commitment is exactly the same, preserving the bystander's option to divert the trolley.  |  IC4=reformulated (0.8): The commitment has shifted from a strict prohibition to a permissive stance on sacrificing one life to save more.  |  IC5=preserved (1.0): The commitment remains unchanged, maintaining the stance of non-intervention in morally complex scenarios."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.7,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting active harm to an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of life, and P2 allows passive redirection of existing harm.  |  IC3=1.0: P1 and P2 both support passively switching tracks to minimize harm to innocent persons.  |  IC4=0.0: P2 explicitly prohibits actively causing harm to an innocent person, which directly contradicts pushing the heavy man onto the track.  |  IC5=0.5: Theory is partially silent on cases with equally unacceptable outcomes, showing some ambiguity in handling morally equivalent harmful scenarios."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through two complementary principles (P1 and P2) that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles are general, principled, and create a unified approach to ethical dilemmas involving potential harm to innocent persons, with P2 providing a nuanced constraint on P1's harm minimization directive."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same, maintaining the principle of not framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to choose the lesser harm option.  |  IC3=preserved (1.0): The commitment is maintained, permitting the bystander to divert the trolley to minimize casualties.  |  IC4=reformulated (0.8): The commitment has shifted from a prohibition to a permissive stance on using the heavy man to stop the trolley.  |  IC5=preserved (1.0): The commitment remains the same, emphasizing non-intervention when both outcomes are morally unacceptable."
+        }
+      },
+      "z_before": 0.74,
+      "z_proposed": 0.8025,
+      "accepted": true,
+      "proposal_diff": "Add a new principle P2 that introduces a distinction between active harm-causing and passive harm, addressing the complex scenarios in IC1 and IC4"
+    },
+    {
+      "step": 2,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MAY choose the outcome that minimizes potential harm, even when both options appear equally unacceptable",
+            "origin": "emerging"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.7,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting active harm to an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of life, and P2 allows passive redirection of existing harm.  |  IC3=1.0: P1 and P2 both support passively switching tracks to minimize harm to innocent persons.  |  IC4=0.0: P2 explicitly prohibits actively causing harm to an innocent person, which directly contradicts pushing the heavy man onto the track.  |  IC5=0.5: Theory is partially silent on cases with equally unacceptable outcomes, showing some ambiguity in handling morally equivalent harmful scenarios."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through two complementary principles (P1 and P2) that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles are general, principled, and create a unified approach to ethical dilemmas involving potential harm to innocent persons, with P2 providing a nuanced constraint on P1's harm minimization directive."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same, maintaining the principle of not framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to choose the lesser harm option.  |  IC3=preserved (1.0): The commitment is maintained, permitting the bystander to divert the trolley to minimize casualties.  |  IC4=reformulated (0.8): The commitment has shifted from a prohibition to a permissive stance on using the heavy man to stop the trolley.  |  IC5=preserved (1.0): The commitment remains the same, emphasizing non-intervention when both outcomes are morally unacceptable."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.7,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting active harm to an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall harm, and P2 allows passive redirection of existing harm.  |  IC3=1.0: P1 and P2 together support passively switching tracks to minimize overall harm to innocent persons.  |  IC4=0.0: P2 explicitly prohibits actively causing harm to an innocent person, which directly contradicts pushing the heavy man onto the track.  |  IC5=0.5: P1 partially supports minimizing harm, but P2's restrictions on active harm create ambiguity about choosing between unacceptable outcomes."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through two interconnected principles (P1 and P2) that provide a coherent framework for moral decision-making under harm reduction scenarios. The principles are general, complementary, and establish a nuanced distinction between active harm causation and passive harm redirection, creating a compact and principled approach to ethical dilemmas."
+        },
+        "faithfulness": {
+          "score": 0.9199999999999999,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to choose the track with fewer potential casualties.  |  IC3=preserved (1.0): The commitment is maintained, permitting the bystander to divert the trolley to minimize loss of life.  |  IC4=reformulated (0.8): The original prohibition against pushing the heavy man has been reinterpreted to allow such an action if it saves more lives.  |  IC5=reformulated (0.8): The original commitment of inaction has been replaced with a more active approach of choosing the least harmful outcome."
+        }
+      },
+      "z_before": 0.8025,
+      "z_proposed": 0.7925,
+      "accepted": false,
+      "proposal_diff": "Reformulate IC5 to allow a principled choice when both outcomes are morally equivalent, consistent with harm minimization principle P1"
+    },
+    {
+      "step": 3,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.7,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting active harm to an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of life, and P2 allows passive redirection of existing harm.  |  IC3=1.0: P1 and P2 both support passively switching tracks to minimize harm to innocent persons.  |  IC4=0.0: P2 explicitly prohibits actively causing harm to an innocent person, which directly contradicts pushing the heavy man onto the track.  |  IC5=0.5: Theory is partially silent on cases with equally unacceptable outcomes, showing some ambiguity in handling morally equivalent harmful scenarios."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through two complementary principles (P1 and P2) that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles are general, principled, and create a unified approach to ethical dilemmas involving potential harm to innocent persons, with P2 providing a nuanced constraint on P1's harm minimization directive."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same, maintaining the principle of not framing an innocent person.  |  IC2=preserved (1.0): The commitment remains unchanged, allowing the driver to choose the lesser harm option.  |  IC3=preserved (1.0): The commitment is maintained, permitting the bystander to divert the trolley to minimize casualties.  |  IC4=reformulated (0.8): The commitment has shifted from a prohibition to a permissive stance on using the heavy man to stop the trolley.  |  IC5=preserved (1.0): The commitment remains the same, emphasizing non-intervention when both outcomes are morally unacceptable."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 0.9,
+          "rationale": "IC1=1.0: P2 strongly supports not framing an innocent person, emphasizing the prohibition against directly harming an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall harm, and the action is passive redirection rather than direct harm.  |  IC3=1.0: P1 and P2 both support passively switching tracks to minimize harm to innocent persons.  |  IC4=0.5: P3 provides a nuanced perspective, suggesting possible permissibility under strict conditions, but with significant reservations about directly harming an innocent person.  |  IC5=1.0: P2 supports the commitment by emphasizing that no action should be taken when both outcomes involve harming innocent persons."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles progressively elaborate a nuanced ethical stance on minimizing harm, with P1, P2, and P3 building a consistent logic around permissible actions when confronting morally complex situations involving potential loss of innocent life."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The original commitment about not framing an innocent person remains exactly the same.  |  IC2=preserved (1.0): The original commitment about the driver potentially diverting to save more lives is unchanged.  |  IC3=preserved (1.0): The original commitment about the bystander throwing the switch remains identical.  |  IC4=reformulated (0.8): The commitment has shifted from a strict prohibition to a potential permissibility of sacrificing one life to save more.  |  IC5=preserved (1.0): The original commitment about not taking action in morally complex scenarios remains the same."
+        }
+      },
+      "z_before": 0.8025,
+      "z_proposed": 0.9025,
+      "accepted": true,
+      "proposal_diff": "Add a new principle P3 to address the ambiguity around active harm to an innocent person, specifically clarifying the moral status of using an individual as a means to prevent greater harm"
+    },
+    {
+      "step": 3,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track to stop the trolley and save more lives",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 0.9,
+          "rationale": "IC1=1.0: P2 strongly supports not framing an innocent person, emphasizing the prohibition against directly harming an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall harm, and the action is passive redirection rather than direct harm.  |  IC3=1.0: P1 and P2 both support passively switching tracks to minimize harm to innocent persons.  |  IC4=0.5: P3 provides a nuanced perspective, suggesting possible permissibility under strict conditions, but with significant reservations about directly harming an innocent person.  |  IC5=1.0: P2 supports the commitment by emphasizing that no action should be taken when both outcomes involve harming innocent persons."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles progressively elaborate a nuanced ethical stance on minimizing harm, with P1, P2, and P3 building a consistent logic around permissible actions when confronting morally complex situations involving potential loss of innocent life."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The original commitment about not framing an innocent person remains exactly the same.  |  IC2=preserved (1.0): The original commitment about the driver potentially diverting to save more lives is unchanged.  |  IC3=preserved (1.0): The original commitment about the bystander throwing the switch remains identical.  |  IC4=reformulated (0.8): The commitment has shifted from a strict prohibition to a potential permissibility of sacrificing one life to save more.  |  IC5=preserved (1.0): The original commitment about not taking action in morally complex scenarios remains the same."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even for a seemingly greater good.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of innocent life by redirecting an existing threat.  |  IC3=1.0: P1 and P2 together support passively redirecting existing harm to minimize loss of life.  |  IC4=1.0: P3 precisely matches the conditions for using an individual to prevent catastrophic harm, emphasizing last resort, certainty, and minimizing overall harm.  |  IC5=1.0: P2 implies avoiding direct harm to innocent persons when both outcomes are morally unacceptable."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles progressively refine a core ethical logic around minimizing harm to innocent persons, with P1, P2, and P3 building a nuanced, increasingly specific set of guidelines that maintain internal consistency while addressing complex moral dilemmas."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The original commitment remains exactly the same, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The original commitment is maintained without any modification in the current commitments.  |  IC3=preserved (1.0): The original commitment remains unchanged, allowing the bystander to divert the trolley.  |  IC4=reformulated (0.8): The original prohibition has been modified to allow pushing the heavy man under very specific, stringent conditions.  |  IC5=preserved (1.0): The original commitment remains identical, maintaining the stance of non-intervention in morally complex scenarios."
+        }
+      },
+      "z_before": 0.9025,
+      "z_proposed": 0.9525,
+      "accepted": true,
+      "proposal_diff": "Reformulate IC4 to align more precisely with P2 and P3, emphasizing the strict conditions for potentially sacrificing an individual to prevent greater harm"
+    },
+    {
+      "step": 4,
+      "kind": "A",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          },
+          {
+            "id": "P4",
+            "text": "The moral permissibility of an involuntary sacrifice is contingent upon: (a) absolute certainty of preventing greater harm, (b) the absence of any alternative interventions, (c) the individual not being deliberately targeted due to personal characteristics, and (d) a proportional relationship between the potential loss of life."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even for a seemingly greater good.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of innocent life by redirecting an existing threat.  |  IC3=1.0: P1 and P2 together support passively redirecting existing harm to minimize loss of life.  |  IC4=1.0: P3 precisely matches the conditions for using an individual to prevent catastrophic harm, emphasizing last resort, certainty, and minimizing overall harm.  |  IC5=1.0: P2 implies avoiding direct harm to innocent persons when both outcomes are morally unacceptable."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles progressively refine a core ethical logic around minimizing harm to innocent persons, with P1, P2, and P3 building a nuanced, increasingly specific set of guidelines that maintain internal consistency while addressing complex moral dilemmas."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The original commitment remains exactly the same, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The original commitment is maintained without any modification in the current commitments.  |  IC3=preserved (1.0): The original commitment remains unchanged, allowing the bystander to divert the trolley.  |  IC4=reformulated (0.8): The original prohibition has been modified to allow pushing the heavy man under very specific, stringent conditions.  |  IC5=preserved (1.0): The original commitment remains identical, maintaining the stance of non-intervention in morally complex scenarios."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting direct harm to an innocent individual.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of innocent life by redirecting an existing threat.  |  IC3=1.0: P1 and P2 both support passively redirecting existing harm to minimize overall loss of innocent life.  |  IC4=1.0: P3 and P4 precisely align with the conditions for an involuntary sacrifice: last resort, certainty of saving more lives, and no alternative exists.  |  IC5=1.0: P2 supports not taking action when both options involve harming innocent persons, as direct causation of harm is prohibited."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "The theory presents a coherent, hierarchical framework for evaluating moral dilemmas involving harm reduction, with principles (P1-P4) that build upon each other and establish clear, interconnected guidelines. The principles are abstract and generalizable, covering scenarios of harm mitigation while maintaining consistent internal logic about the moral constraints on sacrificing innocent life."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The commitment remains exactly the same with no modification.  |  IC2=preserved (1.0): The commitment remains exactly the same with no modification.  |  IC3=preserved (1.0): The commitment remains exactly the same with no modification.  |  IC4=reformulated (0.8): The commitment has been modified to allow pushing the heavy man under very specific, stringent conditions, representing a nuanced shift from the original absolute prohibition.  |  IC5=preserved (1.0): The commitment remains exactly the same with no modification."
+        }
+      },
+      "z_before": 0.9525,
+      "z_proposed": 0.9525,
+      "accepted": false,
+      "proposal_diff": "Add a new principle P4 to clarify the moral status of involuntary sacrifice and provide more explicit guidance on the conditions under which an individual might be used as a means to prevent harm"
+    },
+    {
+      "step": 4,
+      "kind": "B",
+      "state_before": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+            "origin": "emerging"
+          },
+          {
+            "id": "IC5",
+            "text": "In Case5, the bystander MUST NOT take any action, as both switch options lead to morally unacceptable outcomes",
+            "origin": "initial"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "state_proposed": {
+        "commitments": [
+          {
+            "id": "IC1",
+            "text": "In Case1, the judge MUST NOT frame the innocent person, even to save five hostages",
+            "origin": "initial"
+          },
+          {
+            "id": "IC2",
+            "text": "In Case2, the driver MAY steer onto the side track to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC3",
+            "text": "In Case3, the bystander MAY throw the switch to divert the trolley to kill one workman instead of five",
+            "origin": "initial"
+          },
+          {
+            "id": "IC4",
+            "text": "In Case4, the bystander MAY push the heavy man onto the track ONLY IF: (a) it is the absolute last resort, (b) there is certainty of saving more lives, and (c) no alternative exists to prevent catastrophic harm",
+            "origin": "emerging"
+          },
+          {
+            "id": "EC1",
+            "text": "In Case5, the bystander MAY take action to minimize overall harm ONLY IF: (a) the potential action definitively prevents a significantly greater loss of innocent life, (b) no alternative exists to prevent catastrophic harm, and (c) the action represents the least harmful possible intervention",
+            "origin": "emerging"
+          }
+        ],
+        "theory": [
+          {
+            "id": "P1",
+            "text": "When an action would reduce overall harm, by diverting between morally unacceptable outcomes, a moral agent is permitted to choose the option that minimizes harm to innocent persons."
+          },
+          {
+            "id": "P2",
+            "text": "A moral agent must not actively and directly cause harm to an innocent person, even if doing so would prevent greater harm; however, a moral agent may passively redirect existing harm to minimize overall loss of innocent life."
+          },
+          {
+            "id": "P3",
+            "text": "In extreme scenarios where an individual's involuntary sacrifice would definitively prevent a significantly greater loss of innocent life, a moral agent may consider using that individual as a means to prevent catastrophic harm, but only under strict conditions of certainty and last resort."
+          }
+        ]
+      },
+      "scores_before": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even for a seemingly greater good.  |  IC2=1.0: P1 supports diverting harm to minimize overall loss of innocent life by redirecting an existing threat.  |  IC3=1.0: P1 and P2 together support passively redirecting existing harm to minimize loss of life.  |  IC4=1.0: P3 precisely matches the conditions for using an individual to prevent catastrophic harm, emphasizing last resort, certainty, and minimizing overall harm.  |  IC5=1.0: P2 implies avoiding direct harm to innocent persons when both outcomes are morally unacceptable."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that establish a coherent framework for moral decision-making under harm reduction scenarios. The principles progressively refine a core ethical logic around minimizing harm to innocent persons, with P1, P2, and P3 building a nuanced, increasingly specific set of guidelines that maintain internal consistency while addressing complex moral dilemmas."
+        },
+        "faithfulness": {
+          "score": 0.96,
+          "rationale": "IC1=preserved (1.0): The original commitment remains exactly the same, maintaining the absolute prohibition on framing an innocent person.  |  IC2=preserved (1.0): The original commitment is maintained without any modification in the current commitments.  |  IC3=preserved (1.0): The original commitment remains unchanged, allowing the bystander to divert the trolley.  |  IC4=reformulated (0.8): The original prohibition has been modified to allow pushing the heavy man under very specific, stringent conditions.  |  IC5=preserved (1.0): The original commitment remains identical, maintaining the stance of non-intervention in morally complex scenarios."
+        }
+      },
+      "scores_proposed": {
+        "account": {
+          "score": 1.0,
+          "rationale": "IC1=1.0: P2 directly supports not framing an innocent person, even to save others, by prohibiting direct harm to an innocent individual.  |  IC2=1.0: P1 and P2 support diverting an existing harm (trolley) to minimize overall harm, treating this as a passive redirection rather than direct harm.  |  IC3=1.0: P1 and P2 support switching tracks as a passive redirection of existing harm to minimize overall loss of life.  |  IC4=1.0: P3 precisely matches the conditions for potentially using an individual to prevent catastrophic harm, emphasizing last resort, certainty, and minimizing harm.  |  EC1=1.0: P1 and P3 fully support taking action to minimize harm under strict conditions of definitively preventing greater loss of life and using the least harmful intervention."
+        },
+        "systematicity": {
+          "score": 0.85,
+          "rationale": "Theory T demonstrates high systematicity through three interconnected principles that articulate a nuanced ethical framework for harm reduction. The principles progressively elaborate a consistent approach to moral decision-making under complex scenarios, with P1, P2, and P3 building a coherent hierarchy of ethical reasoning around minimizing harm to innocent persons while establishing clear constraints on direct harm-causing actions."
+        },
+        "faithfulness": {
+          "score": 0.9199999999999999,
+          "rationale": "IC1=preserved (1.0): The original commitment remains exactly the same with no modifications.  |  IC2=preserved (1.0): The original commitment remains exactly the same with no modifications.  |  IC3=preserved (1.0): The original commitment remains exactly the same with no modifications.  |  IC4=reformulated (0.8): The commitment has been modified to allow pushing the heavy man under strict, carefully defined conditions, representing a nuanced reinterpretation of the original absolute prohibition.  |  IC5=reformulated (0.8): The original commitment of inaction has been replaced with a conditional permission to act if specific harm-minimization criteria are met."
+        }
+      },
+      "z_before": 0.9525,
+      "z_proposed": 0.9425,
+      "accepted": false,
+      "proposal_diff": "Reformulate IC5 to align with P1 and P3, allowing action in extreme scenarios where minimizing overall harm is possible"
+    }
+  ],
+  "converged": true,
+  "final_z": 0.9525
+}

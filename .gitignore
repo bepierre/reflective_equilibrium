@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+
+# debug-only run artifacts; keep .json and .md
+runs/*.log
