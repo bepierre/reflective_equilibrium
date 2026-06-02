@@ -5,9 +5,19 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+.DS_Store
 
 # debug-only run artifacts; keep .json and .md
 runs/*.log
 
-# source PDFs are not redistributed
-*.pdf
+# source PDFs are not redistributed (but generated PDFs in docs/ are kept)
+/*.pdf
+
+# LaTeX build artifacts (keep main.pdf as committed output)
+docs/imaginary_paper/*.aux
+docs/imaginary_paper/*.log
+docs/imaginary_paper/*.out
+docs/imaginary_paper/*.bbl
+docs/imaginary_paper/*.blg
+docs/imaginary_paper/*.toc
+docs/imaginary_paper/*.synctex.gz
