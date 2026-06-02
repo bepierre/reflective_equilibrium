@@ -14,6 +14,7 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage[round,authoryear]{natbib}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
 
 % Inline figure environment usable inside multicols (no floating).
 \newenvironment{Figure}{\par\medskip\noindent\begin{minipage}{\linewidth}\centering}
@@ -42,28 +43,27 @@
 \begin{abstract}\small
 \noindent
 What counts as good moral reasoning when there is no single ground truth?
-We propose a multi-objective view in which a moral position --- a set of
-commitments together with a set of principles that account for them --- is
+We propose a multi-objective view in which a moral position (a set of
+commitments together with a set of principles that account for them) is
 evaluated against two axis families that genuinely conflict. The primary axes
 are \emph{ethical}: principles carry fuzzy loadings on moral values, and we
-work with five --- \textsc{freedom}, \textsc{solidarity}, \textsc{justice},
-\textsc{welfare}, and \textsc{dignity} --- chosen so that the central
-tensions of moral life (liberty vs.\ community, fairness vs.\ welfare,
+work with five: \textsc{freedom}, \textsc{solidarity}, \textsc{justice},
+\textsc{welfare}, and \textsc{dignity}, chosen so that the central tensions of
+moral life (liberty vs.\ community, fairness vs.\ welfare,
 welfare vs.\ dignity) appear directly as trade-offs among axes. The secondary
 axes are \emph{epistemic} measures of internal coherence: account,
-systematicity, and faithfulness.
-Every reachable position occupies a point in this joint space, and the
-rational object of study is its \emph{Pareto frontier}: the set of attainable
-positions for which no other position is at least as good on every axis and
-strictly better on at least one. We argue that this reframes the central
-question of moral reasoning from ``which position is right?'' to ``which
-strategy reliably finds positions on the frontier?''~--- and that the question
-favours \emph{equilibrium-style methods} that balance competing values, because
-without a ground truth the best a reasoner can do is settle on a defensible
-middle. We sketch a pilot using MoReBench dilemmas: we construct a curated,
-philosopher-verified pool of commitments, principles, value loadings, and
-inferential edges, then compare several algorithmic traversal strategies on
-the resulting space.
+systematicity, and faithfulness. Every reachable position occupies a point in
+this joint space, and the rational object of study is its \emph{Pareto
+frontier}: the set of attainable positions for which no other position is at
+least as good on every axis and strictly better on at least one. This reframes
+the central question of moral reasoning from ``which position is right?'' to
+``which strategy reliably finds positions on the frontier?''. The question
+favours \emph{equilibrium-style methods} that balance competing values,
+because without a ground truth the best a reasoner can do is settle on a
+defensible middle. We sketch a pilot using MoReBench dilemmas. We construct
+a curated, philosopher-verified pool of commitments, principles, value
+loadings, and inferential edges, then compare several algorithmic traversal
+strategies on the resulting space.
 \end{abstract}
 
 \begin{multicols}{2}
@@ -80,19 +80,18 @@ such a domain.
 
 We argue the question has a structural answer: good moral reasoning is
 \emph{multi-objective}. A position is graded along two axis families that
-genuinely conflict. The primary ones are \emph{ethical} --- weight on different
-moral values: freedom, solidarity, justice, welfare, dignity, which trade off
-against each other. The secondary ones are \emph{epistemic} --- the position's
-internal coherence: account, systematicity, faithfulness \citep{beisbart2021}.
+genuinely conflict. The primary ones are \emph{ethical}: weight on different
+moral values (freedom, solidarity, justice, welfare, dignity), which trade off
+against each other. The secondary ones are \emph{epistemic}: the position's
+internal coherence (account, systematicity, faithfulness).
 When objectives conflict, the rational object of study is not a single optimum
 but a \emph{Pareto frontier}: the set of attainable positions no other position
-dominates on every axis. A good reasoning strategy is one that reliably
-reaches it, and reaches \emph{interior} (mixed) points --- corner solutions
-like ``maximise welfare and nothing else'' are easy and uninteresting.
-Reflective equilibrium, with its alternating adjustment of commitments and
-principles, is the canonical equilibrium-style traversal of this space; it is
-the primary strategy we study, and we compare it to several alternatives
-below.
+dominates on every axis. A good reasoning strategy reliably reaches it, and
+reaches \emph{interior} (mixed) points; corner solutions like ``maximise
+welfare and nothing else'' are easy and uninteresting. Reflective equilibrium,
+with its alternating adjustment of commitments and principles, is the
+canonical equilibrium-style traversal of this space. It is the primary
+strategy we study, and we compare it to several alternatives below.
 
 \section{The moral data resource}\label{sec:resource}
 
@@ -108,23 +107,23 @@ independent quality dimensions (systematicity, specificity, domain-fit).
 Every stage is \emph{LLM-first, philosopher-verified}. The curated pool is
 meant as a reusable resource in its own right.
 
-\paragraph{Pre-enumerated inferential connections.} For every principle-%
+\paragraph{Pre-enumerated inferential connections.} For every principle and
 commitment pair we LLM-generate whether the principle entails the commitment,
-contradicts it, or is silent on it; philosophers then review the resulting
-graph. The result is fixed before any reasoning strategy runs.
+contradicts it, or is silent on it. Philosophers review the resulting graph.
+The result is fixed before any reasoning strategy runs.
 
 \paragraph{Pre-tagged ethical values.} Each surviving principle carries a
 fuzzy value-loading vector distributing its weight across the five values.
 
 \paragraph{Reasoning as definable movement in a defined space.}
 Once this substrate is fixed, a reasoning strategy can be defined precisely:
-it is a way of moving through the space, selecting a subset of commitments and
-a subset of principles subject to consistency, evaluated by the multi-objective
-measures of Section~\ref{sec:formal}. The comparison across strategies (which
-values does each favour? where does each converge?) becomes scientifically
-tractable, because \emph{no LLM participates inside the reasoning loop} ---
-the LLM does its work during construction, and any differences in outputs
-downstream reflect differences in strategies, not in the content.
+it is a way of moving through the space, selecting a subset of commitments
+and a subset of principles subject to consistency, evaluated by the
+multi-objective measures of Section~\ref{sec:formal}. The comparison across
+strategies (which values does each favour? where does each converge?) becomes
+scientifically tractable. \emph{No LLM participates inside the reasoning
+loop}; the LLM does its work during construction, and any downstream
+differences in outputs reflect differences in strategies, not in the content.
 
 \begin{Figure}
   \centering
@@ -151,8 +150,8 @@ We summarise the notation here and then state the multi-objective optimization
 problem it gives rise to.
 
 \paragraph{Pools.} Fix a finite pool of candidate moral commitments
-$\mathcal{S}$ --- case verdicts indexed by the dilemmas in our dataset,
-closed under negation --- a finite pool of candidate moral principles
+$\mathcal{S}$ (case verdicts indexed by the dilemmas in our dataset, closed
+under negation), a finite pool of candidate moral principles
 $\mathcal{P}$, and a finite set of moral values
 $\mathcal{V} = \{v_1, \dots, v_K\}$. In this work
 $\mathcal{V} = \{\textsc{freedom}, \textsc{solidarity}, \textsc{justice},
@@ -219,14 +218,13 @@ $(V_1, \dots, V_K)$ is \emph{ethical}, the secondary $(A, S, F)$ is
 lower-dimensional frontiers $\Pi_V$ and $\Pi_E$, related but not
 collapsible: an epistemic Pareto-optimal state need not be ethical
 Pareto-optimal (it may achieve high coherence at a corner of value-space)
-and vice versa. We propose landing on $\Pi_E \cap \Pi_V$ ---
-coherent \emph{and} pareto-optimal across values --- as the target of good
-moral reasoning.
+and vice versa. We propose landing on $\Pi_E \cap \Pi_V$ (coherent \emph{and}
+Pareto-optimal across values) as the target of good moral reasoning.
 
 \paragraph{Values as primary, frameworks as a secondary lens.} The
-fine-grained value tensions that drive moral reasoning ---
-\textsc{freedom} against \textsc{solidarity}, \textsc{welfare} against
-\textsc{dignity} --- are clearer at the value level than at the framework
+fine-grained value tensions that drive moral reasoning
+(\textsc{freedom} against \textsc{solidarity}, \textsc{welfare} against
+\textsc{dignity}) are clearer at the value level than at the framework
 level. Frameworks are bundles of values (Kantian deontology loads on
 \textsc{dignity} and a particular kind of \textsc{justice}; utilitarianism on
 \textsc{welfare} and a particular kind of \textsc{solidarity}), and from
@@ -262,8 +260,8 @@ then review and correct.
 
 \paragraph{Traversals.} Because the entire pool is already LLM-generated and
 philosopher-verified, the strategies we compare are \emph{purely algorithmic
-operations} on the fixed substrate --- the LLM does no further work inside
-any of them. We run: symbolic RE (the primary strategy), an MCMC walk over
+operations} on the fixed substrate. The LLM does no further work inside any
+of them. We run: symbolic RE (the primary strategy), an MCMC walk over
 admissible $(C, T)$ states with $Z$ as energy (a sampling baseline that
 characterises the distribution of decent positions without an equilibration
 bias), multi-objective evolutionary search (NSGA-II, used to estimate
@@ -273,9 +271,9 @@ the pool under several regimes (uniformly random, biased toward specific
 value mixes, and full-pool initialisation) to characterise how landing
 regions depend on starting point. Each method yields a distribution of
 $(A, S, F, V_1, \dots, V_K)$ points. An end-to-end LLM-in-loop pipeline
-that reasons directly without the curated pool --- the prototype we have
-already built on the trolley cases --- is a complementary downstream
-experiment for later work.
+that reasons directly without the curated pool, using the trolley prototype
+we have already built, is a complementary downstream experiment for later
+work.
 
 \paragraph{Analysis.} Locate each method's landing distribution on $\Pi_E$
 and $\Pi_V$. Test H1 by convergence rate and Hausdorff distance of RE fixed
@@ -292,7 +290,7 @@ an emerging commitment, briefly hurting $A$; the next A-step articulates a
 sharper principle that lifts both axes; the rejected moves map to dominated
 points off the frontier. The value trajectory is more interesting: the same
 alternating pattern ends not at a corner (pure freedom or pure solidarity) but
-at an \emph{interior} point of $\Pi_V$ --- a mix neither axis alone would
+at an \emph{interior} point of $\Pi_V$: a mix neither axis alone would
 predict but that no other mix dominates. This is what we mean by an
 equilibrium in value-space, and what we suspect makes RE philosophically
 distinctive.
@@ -340,7 +338,7 @@ distinctive.
   \captionof{figure}{\small \textbf{Epistemic Pareto frontier.} Projection onto
     $(A, S)$ with $F \approx 1$. The RE run climbs through three accepted moves and
     rejects two dominated proposals (grey $\times$). The starred final state
-    sits at the frontier --- a global trade-off optimum no other reachable state
+    sits at the frontier: a global trade-off optimum no other reachable state
     dominates.}
   \label{fig:epi-frontier}
 \end{Figure}
@@ -389,7 +387,7 @@ distinctive.
   \captionof{figure}{\small \textbf{Ethical-value Pareto frontier.} Projection of
     $V(T)$ onto $(V_{\text{freedom}}, V_{\text{solidarity}})$. Pure-component
     greedy baselines collapse to corners; NSGA-II traces the frontier; RE
-    lands at an interior frontier point --- a defensibly mixed normative
+    lands at an interior frontier point, a defensibly mixed normative
     profile.}
   \label{fig:val-frontier}
 \end{Figure}
@@ -413,8 +411,8 @@ coherent positions efficiently, even though it cannot guarantee a unique one.
 ethical-value frontier $\Pi_V$ is not arbitrary. We predict that landing
 points cluster in the \emph{interior} of $\Pi_V$ rather than at its corners,
 and that they tend to favour values whose principles admit compact statement
---- so welfare and justice over solidarity and dignity --- though the
-strength of this bias should depend on the curated principle pool. If
+(so welfare and justice over solidarity and dignity), though the strength of
+this bias should depend on the curated principle pool. If
 confirmed, H2 says that an internally well-motivated method of moral reasoning
 silently carries a substantive value bias.
 
@@ -425,14 +423,41 @@ them. \emph{Pluralism} is real but not relativism: the frontier picks out a
 proper subset of positions, and being on it is a substantive constraint.
 \emph{Conservatism} shows up as a measurable landing-region offset toward
 $F=1$, which we can now quantify rather than dismiss. The underlying
-philosophical question --- what \emph{is} good moral reasoning? --- becomes
+philosophical question (what \emph{is} good moral reasoning?) becomes
 empirically tractable: a property of traversal strategies on a measurable
 solution topology. The contribution we are aiming at is a measurement
-instrument --- value-trajectory plots and Pareto-region analyses ---
-applicable to any LLM-based or symbolic moral reasoning system.
+instrument (value-trajectory plots and Pareto-region analyses) applicable
+to any LLM-based or symbolic moral reasoning system.
 
-\bibliographystyle{plainnat}
-\bibliography{references}
+\begin{thebibliography}{9}
+\bibitem[Beisbart et~al.(2021)]{beisbart2021}
+Claus Beisbart, Gregor Betz, and Georg Brun.
+\newblock Making reflective equilibrium precise: A formal model.
+\newblock \emph{Ergo}, 8(15):441--472, 2021.
+\newblock \doi{10.3998/ergo.1152}.
+
+\bibitem[Elgin(1996)]{elgin1996}
+Catherine~Z. Elgin.
+\newblock \emph{Considered Judgment}.
+\newblock Princeton University Press, 1996.
+
+\bibitem[Freivogel(2023)]{freivogel2023}
+Andreas Freivogel.
+\newblock Does reflective equilibrium help us converge?
+\newblock \emph{Synthese}, 202(171), 2023.
+\newblock \doi{10.1007/s11229-023-04375-0}.
+
+\bibitem[Rechnitzer(2022)]{rechnitzer2022}
+Tanja Rechnitzer.
+\newblock Turning the trolley with reflective equilibrium.
+\newblock \emph{Synthese}, 200(4), 2022.
+\newblock \doi{10.1007/s11229-022-03762-3}.
+
+\bibitem[Scale Labs(2025)]{morebench2025}
+Scale Labs.
+\newblock {MoReBench}: Evaluating procedural and pluralistic moral reasoning in language models.
+\newblock arXiv:2510.16380, \url{https://morebench.github.io/}, 2025.
+\end{thebibliography}
 
 \end{multicols}
 
