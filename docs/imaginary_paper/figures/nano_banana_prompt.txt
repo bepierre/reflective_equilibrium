@@ -1,55 +1,52 @@
-A wide horizontal infographic for an academic philosophy/computer-science
-paper, conveying how a curated MORAL DATA RESOURCE is constructed and what
-mathematical structure it carries. Aspect ratio approximately 16:7. Soft
-academic-illustration style ("Distill.pub" or "Nature Methods" infographic):
-restrained colour palette of teal, indigo, amber, maroon, and soft grey on a
-white background, serif labels in small font, no glossy 3D, no decorative
-elements, no AI artefacts, no watermarks.
+A vertically-oriented infographic suitable for a single column of a two-column
+academic paper. Aspect ratio approximately 3:4 (slightly taller than wide --
+should sit comfortably within a column width of ~8cm). Subject: how a curated
+MORAL DATA RESOURCE is constructed from a dilemma dataset and what mathematical
+structure it carries. Soft "Distill.pub" academic-illustration style. Restrained
+colour palette of teal, indigo, amber, maroon, and soft grey on a white
+background. Serif labels in small font. No glossy 3D, no decorative elements,
+no AI artefacts, no watermarks.
 
-Five stations connected left-to-right by thin arrows. Each station is a
-softly-framed panel with a small heading and an icon-like glyph.
+Five stations stacked top-to-bottom, each a softly-framed panel with a small
+heading and an icon-like glyph. Stations connected by thin downward arrows.
 
-STATION 1 -- "Moral Dilemmas (MoReBench)":
-A small stack of overlapping document cards. Each card shows a tiny stylised
-pictogram in the corner (a trolley, a hospital, a robot, a scale of justice).
-No readable text inside the cards.
+STATION 1 (top) -- "Moral Dilemmas (MoReBench)":
+A small horizontal row of overlapping document cards. Each card shows a tiny
+stylised pictogram in the corner (a trolley, a hospital, a robot, a scale of
+justice). No readable text inside the cards.
 
-STATION 2 -- "Pool Generation":
-Two stacked boxes inside the panel. A teal box labeled "Commitments C" with a
-column of small dots representing ~30 generated commitments. A beige box
-labeled "Principles P" with a column of dots representing ~20 generated
-principles. A small dotted "LLM" label hovers over the boxes to indicate
-generation.
+STATION 2 -- "Pool Generation (LLM)":
+Two boxes side by side: a teal box labeled "Commitments C" with a column of
+~10 small dots representing generated commitments, and a beige box labeled
+"Principles P" with a column of ~7 dots representing generated principles.
+A small dotted "LLM" label hovers between them.
 
-STATION 3 -- "Curation":
-Centre and largest station, because this is the load-bearing step. Show the
-same two boxes from station 2, but now with edits: a pair of nearby dots in
-the principles box are connected by a small "fuse" symbol (two arrows meeting),
-a faded greyed-out dot indicates a principle marked for deletion, and a small
-star next to each remaining principle indicates per-principle quality scoring
-(systematicity, specificity, domain-fit). A small avatar icon labeled
-"philosopher review" sits beside the panel to signal expert double-check.
+STATION 3 (largest, central emphasis) -- "Curation":
+The same two boxes, now showing edits: two adjacent dots in the principles
+box are connected by a small "fuse" symbol (two arrows meeting); a faded
+greyed-out dot marks a deletion; a small star next to each remaining principle
+indicates per-principle quality scoring (systematicity, specificity,
+domain-fit). A small avatar icon labeled "philosopher review" sits beside the
+panel. Subtitle below: "fuse + prune + score + double-check".
 
 STATION 4 -- "Ethical Value Tagging":
-Each surviving principle in the box now carries a row of five tiny coloured
-chips on its right, representing fuzzy loadings on the five values. A small
-legend on the side maps colours to: Freedom (teal), Solidarity (indigo),
-Justice (amber), Welfare (maroon), Dignity (soft grey). One example principle
-("minimise aggregate harm under unavoidable loss") is enlarged slightly to
-show its loading vector clearly. Place the ethical values in visual forefront
--- they are the primary axis family.
+Each surviving principle in the box now carries a horizontal row of five tiny
+coloured chips on its right, representing fuzzy loadings on the five values.
+A compact legend on the side maps colours to: Freedom (teal), Solidarity
+(indigo), Justice (amber), Welfare (maroon), Dignity (soft grey). One example
+principle is highlighted slightly larger with its full loading vector shown
+clearly.
 
-STATION 5 -- "Dialectical Structure tau = (S, P, rho)":
-A clean bipartite graph: principles on top (small circles, coloured by their
+STATION 5 (bottom) -- "Dialectical structure":
+A clean bipartite graph: principles on top (small circles, coloured by
 dominant value), commitments on bottom (small grey circles), connected by
 edges in three styles -- solid green for "entails", solid red for
-"contradicts", dashed grey for "silent". Edges sparse and uncluttered.
-A small caption below the graph reads "A curated, mathematically defined
-moral space."
+"contradicts", dashed grey for "silent". Sparse and uncluttered. A small
+caption beneath reads: "A curated, mathematically defined moral space --
+traversable by RE, MCMC, NSGA-II, single-pass LLM, ..."
 
-To the far right of the pipeline, in slightly smaller scale, place a single
-unobtrusive caption: "Traversable by RE, MCMC, NSGA-II, single-pass LLM, ..."
-with five tiny stylised path icons in different colours fanning out from the
-dialectical-structure panel toward an unseen Pareto frontier. Do not draw the
-frontier itself in this figure -- it is shown separately. The point of this
-figure is the construction of the resource, not the traversal of it.
+The vertical pipeline should read top-to-bottom as a story: from messy
+real-world dilemmas through LLM generation and careful curation to a clean,
+mathematical substrate ready for any reasoning algorithm. Width: fits a
+single academic column. Height: comfortable for all five stations without
+crowding.

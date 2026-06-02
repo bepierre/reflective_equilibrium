@@ -68,92 +68,77 @@ system we have already prototyped.
 
 \section{Motivation: moral reasoning without a ground truth}
 
-Moral reasoning has long resisted the model of justification that works elsewhere
-in epistemology. There is no external fact of the matter that a moral position
-\emph{tracks} the way an empirical belief tracks the world. Two careful reasoners
-working from different starting intuitions can both reason responsibly and reach
-different conclusions, and we do not, on reflection, want to say one of them is
-just wrong --- pluralism in moral epistemology is widely accepted
-\citep{elgin1996, rechnitzer2022}. The natural question, then, is not which
-position is correct but \emph{what counts as good reasoning} in a domain where
-the standard correctness criterion does not apply.
+Moral reasoning resists the model of justification that works elsewhere in
+epistemology: no external fact of the matter fixes which position is right.
+Two careful reasoners can start from different intuitions and reach different
+conclusions without either being simply wrong; pluralism in moral epistemology
+is widely accepted \citep{elgin1996, rechnitzer2022}. The right question is
+then not which position is correct but \emph{what counts as good reasoning} in
+such a domain.
 
-We argue that this question has a structural answer: good moral reasoning is
-\emph{multi-objective}. A moral position is graded on at least two distinct
-axis families. The primary ones are \emph{ethical}: a position carries weight
-on different moral values --- freedom, solidarity, justice, welfare, dignity ---
-and these values genuinely conflict. A position that maximises welfare may
-underweight freedom; a position centred on dignity may not maximise welfare;
-a position that elevates solidarity may sit uneasily with strong protections of
-individual freedom. The choice of how to balance such tensions is what moral
-reasoning is for.
-
-In parallel, a position is graded \emph{epistemically} on how well it hangs
-together as reasoning --- the principles should account for the commitments,
-the principles should be compact and unifying, and the commitments should not
-stray too far from the agent's starting intuitions. A formal account of these
-coherence properties is available \citep{beisbart2021}. We take these as
-secondary objectives: a morally interesting position that is internally
-incoherent is not a serious candidate, but a perfectly coherent position can
-still occupy any number of places in value-space, and the central
-philosophical interest is in the latter.
-
-When objectives genuinely conflict, the rational object of study is not a single
-optimum but a \emph{Pareto frontier}: the set of attainable positions for which
-no other position is at least as good on every objective and strictly better on
-at least one. We claim that this is the right object of study for moral
-reasoning, and that it gives us a new way to evaluate reasoning strategies. A
-good strategy is one that reliably finds Pareto-optimal positions --- and
-ideally finds interior (mixed) ones, since corner solutions (``maximise welfare
-and nothing else'') are easy and uninteresting. We will argue that
-\emph{equilibrium-style} methods --- methods that proceed by mutually adjusting
-commitments and principles in light of each other --- are particularly
-well-suited to this role, because they explicitly negotiate the kind of
-trade-offs the frontier consists of. Reflective equilibrium, in this view, is
-one instance of a broader family of equilibrium-style traversal strategies
-worth studying empirically.
+We argue the question has a structural answer: good moral reasoning is
+\emph{multi-objective}. A position is graded along two axis families that
+genuinely conflict. The primary ones are \emph{ethical} --- weight on different
+moral values: freedom, solidarity, justice, welfare, dignity, which trade off
+against each other. The secondary ones are \emph{epistemic} --- the position's
+internal coherence: account, systematicity, faithfulness \citep{beisbart2021}.
+When objectives conflict, the rational object of study is not a single optimum
+but a \emph{Pareto frontier}: the set of attainable positions no other position
+dominates on every axis. A good reasoning strategy is one that reliably
+reaches it, and reaches \emph{interior} (mixed) points --- corner solutions
+like ``maximise welfare and nothing else'' are easy and uninteresting.
+Reflective equilibrium, with its alternating adjustment of commitments and
+principles, is the canonical equilibrium-style traversal of this space; it is
+the primary strategy we study, and we compare it to several alternatives
+below.
 
 \section{The moral data resource}\label{sec:resource}
 
-The methodological contribution we are pitching is a way to make moral
-reasoning empirically studyable: construct a curated, mathematically defined
-\emph{moral data resource}, then study reasoning strategies as pure traversal
-algorithms on it. Three ideas combine.
+We propose making moral reasoning empirically studyable by constructing a
+curated, mathematically defined \emph{moral data resource}, then studying
+reasoning strategies as algorithms over it. Three ingredients combine.
 
-\paragraph{Pre-enumerated inputs.} The candidates an agent might consider
-when reasoning about the dataset --- specific case verdicts and candidate
-moral principles --- are pre-enumerated. We construct a finite pool of
-candidate commitments and a finite pool of candidate principles from a
-dilemma source, then curate both pools with explicit quality control: fusion
-of near-duplicates, deletion of weak candidates, per-principle scoring on
-quality dimensions (independent systematicity, specificity, domain-fit), and
-philosopher review of every retained candidate. The curated pool is intended
-as a reusable resource in its own right, independent of any downstream
-reasoning method.
+\paragraph{Pre-enumerated inputs.} Candidate case verdicts and candidate
+moral principles are pre-enumerated. We generate two finite pools from a
+dilemma source, then curate with explicit quality control: fuse
+near-duplicates, drop weak candidates, score each principle on quality
+dimensions (independent systematicity, specificity, domain-fit), and have
+philosophers review every retained candidate. The curated pool is meant as
+a reusable resource in its own right.
 
 \paragraph{Pre-enumerated inferential connections.} For every principle-%
 commitment pair we pre-compute whether the principle entails the commitment,
-contradicts it, or is silent on it. The result is a fixed, philosopher-%
-validated inferential graph between principles and commitments.
+contradicts it, or is silent on it --- a fixed, philosopher-validated graph.
 
-\paragraph{Pre-tagged ethical values.} Each principle in the curated pool
-carries a fuzzy value-loading vector distributing its weight across the five
-values, also fixed during curation.
+\paragraph{Pre-tagged ethical values.} Each surviving principle carries a
+fuzzy value-loading vector distributing its weight across the five values.
 
-\paragraph{Reasoning becomes pure mathematics.} The combined output is a
-fully specified moral space. \emph{Reasoning over it is then a purely
-mathematical operation: a reasoning strategy is simply an algorithm that
-selects, from the fixed pools, a subset of commitments and a subset of
-principles subject to consistency, graded by the multi-objective evaluation
-defined in Section~\ref{sec:formal}. No LLM participates in the reasoning
-loop.} The LLM does its work during construction; all comparison of
-strategies happens on a fixed substrate.
+\paragraph{Reasoning as definable movement in a defined space.}
+Once this substrate is fixed, a reasoning strategy can be defined precisely:
+it is a way of moving through the space, selecting a subset of commitments and
+a subset of principles subject to consistency, evaluated by the multi-objective
+measures of Section~\ref{sec:formal}. The comparison across strategies (which
+values does each favour? where does each converge?) becomes scientifically
+tractable, because \emph{no LLM participates inside the reasoning loop} ---
+the LLM does its work during construction, and any differences in outputs
+downstream reflect differences in strategies, not in the content.
 
-This decoupling is what makes the comparison cleanly interpretable. Current
-debates about LLMs and moral reasoning conflate the \emph{moral content} a
-model can articulate with the \emph{reasoning strategy} it employs. Here
-those are separated: the moral content lives in the curated pool, validated
-up-front; the strategies are pure mathematics operating on it.
+\begin{Figure}
+  \centering
+  \IfFileExists{figures/fig.jpg}{%
+    \includegraphics[width=\linewidth]{figures/fig.jpg}%
+  }{%
+    \fbox{\parbox{\dimexpr\linewidth-2em\relax}{\centering\itshape\small
+      {[Concept diagram --- place at \texttt{figures/fig.jpg}]}\\[5em]\strut}}%
+  }
+  \captionof{figure}{\small \textbf{Building the moral data resource.}
+    Source dilemmas $\to$ LLM generation of commitment and principle pools
+    $\to$ \emph{curation} (fuse, prune, score per-principle systematicity;
+    philosopher review) $\to$ value tagging $\to$ dialectical structure.
+    The output is a curated, mathematically defined moral space over which
+    any traversal method can be evaluated.}
+  \label{fig:concept}
+\end{Figure}
 
 \section{A formal model of the moral solution space}\label{sec:formal}
 
@@ -223,101 +208,79 @@ larger. The \emph{Pareto frontier} of the problem is
 \]
 $\Pi$ is the empirical object this paper proposes to study.
 
-\paragraph{Implementation status.} As a precursor to the curated-pool pilot
-of Section~\ref{sec:methods}, we have built an end-to-end \emph{LLM-in-loop}
-prototype of this formal setup (six agents: a commitment former, two
-inferencers, three verifiers) on the five trolley cases of
-\citet{rechnitzer2022}. This prototype is transitional --- it puts an LLM
-inside the reasoning loop because the curated pool described in
-Section~\ref{sec:resource} does not yet exist for the dataset --- but it has
-already produced informative cross-model variance. Three small-model runs
-(Gemini~2.0~Flash, Claude~3.5~Haiku, GPT-4o-mini) land at qualitatively
-distinct epistemic states (a clean doing-vs-allowing theory; a consequentialist
-reformulation with conditional carve-outs; an under-abstracted enumeration of
-the cases), already suggesting that \emph{which point of $\Pi$ is reached} is
-doing more work than \emph{whether} a point of $\Pi$ is reached. The proposed
-pilot pulls the LLM out of the loop and runs the comparison on a fixed,
-philosopher-validated $\tau$.
-
 \section{Two axis families, one frontier}
 
-The objective vector splits naturally into two axis families. The primary
-$(V_1, \dots, V_K) \in [0, 1]^K$ is \emph{ethical} --- properties of the
-position as a moral stance. The secondary $(A, S, F) \in [0, 1]^3$ is
-\emph{epistemic} --- properties of the position as reasoning. The two families
-are formally on the same footing inside the optimization problem above but
-answer different questions and trade off against each other in characteristic
-ways.
+The objective vector splits into two axis families: the primary
+$(V_1, \dots, V_K)$ is \emph{ethical}, the secondary $(A, S, F)$ is
+\emph{epistemic}. Projecting $\Pi(\tau, C_0)$ onto each gives two
+lower-dimensional frontiers $\Pi_V$ and $\Pi_E$, related but not
+collapsible: an epistemic Pareto-optimal state need not be ethical
+Pareto-optimal (it may achieve high coherence at a corner of value-space)
+and vice versa. We propose landing on $\Pi_E \cap \Pi_V$ ---
+coherent \emph{and} pareto-optimal across values --- as the target of good
+moral reasoning.
 
-\paragraph{Values as primary, frameworks as a secondary lens.} Our primary
-axes are values rather than named ethical frameworks (utilitarianism,
-Kantianism, virtue ethics). Values are more fine-grained, and the moral
-tensions that drive reasoning --- \textsc{freedom} against \textsc{solidarity},
-\textsc{welfare} against \textsc{dignity} --- are most clearly articulated at
-the value level. Frameworks, on the other hand, are bundles of values:
-Kantian deontology loads on \textsc{dignity} and on a particular kind of
-\textsc{justice}; utilitarianism loads on \textsc{welfare} and a particular
-kind of \textsc{solidarity}. Once we have value-tagged principles, we can
-recover framework fits \emph{a posteriori} as a secondary analysis: which
-principles cluster together under each framework, which cross frameworks,
-where frameworks pull apart. We also expect this to be of independent
-interest, and include it in the pilot.
+\paragraph{Values as primary, frameworks as a secondary lens.} The
+fine-grained value tensions that drive moral reasoning ---
+\textsc{freedom} against \textsc{solidarity}, \textsc{welfare} against
+\textsc{dignity} --- are clearer at the value level than at the framework
+level. Frameworks are bundles of values (Kantian deontology loads on
+\textsc{dignity} and a particular kind of \textsc{justice}; utilitarianism on
+\textsc{welfare} and a particular kind of \textsc{solidarity}), and from
+value-tagged principles we can recover framework fits \emph{a posteriori}.
+We include this analysis in the pilot.
 
-\paragraph{Two frontiers worth studying.} Projecting $\Pi(\tau, C_0)$ onto the
-epistemic subspace and the ethical subspace gives two lower-dimensional
-frontiers, $\Pi_E$ and $\Pi_V$ respectively. They are related but not
-collapsible: an epistemic Pareto-optimal state need not be ethical Pareto-optimal
-(it may achieve high coherence at a corner of value-space) and vice versa.
-A reasoning strategy that consistently lands on $\Pi_E \cap \Pi_V$ ---
-a position that is coherent \emph{and} pareto-optimal across values --- is
-doing something philosophically distinctive, and it is this intersection that
-we propose as the target of ``good moral reasoning''.
+\section{Methodology sketch}\label{sec:methods}
 
-\begin{Figure}
-  \centering
-  \IfFileExists{figures/concept.png}{%
-    \includegraphics[width=\linewidth]{figures/concept.png}%
-  }{%
-    \fbox{\parbox{\dimexpr\linewidth-2em\relax}{\centering\itshape\small
-      {[Concept diagram --- generate with Nano Banana, prompt in
-      \texttt{figures/nano\_banana\_prompt.txt}]}\\[5em]\strut}}%
-  }
-  \captionof{figure}{\small \textbf{Building the moral data resource.}
-    Source dilemmas $\to$ LLM generation of commitment and principle pools
-    $\to$ \emph{curation} (fuse, prune, score per-principle systematicity;
-    philosopher review) $\to$ value tagging
-    $\boldsymbol{v}: \mathcal{P}\to[0,1]^K$ $\to$ dialectical structure
-    $\tau = \langle \mathcal{S}, \mathcal{P}, \rho \rangle$. The output is a
-    curated, mathematically defined moral space over which any traversal
-    method can be evaluated.}
-  \label{fig:concept}
-\end{Figure}
+\paragraph{Data.} We use the MoReBench-Theory subset
+\citep{morebench2025}: 150 scenarios with explicit framework labels, which
+serve as anchors for our value tagging.
+
+\paragraph{Pipeline.} The construction of the data resource is the
+load-bearing step:
+\begin{enumerate}[leftmargin=*, itemsep=2pt, label=(\roman*)]
+  \item \emph{Generate.} For each of $\sim$10 dilemmas, LLM-generate a
+    commitment pool ($\sim$30 candidates) and a principle pool ($\sim$20
+    candidates, half value-archetypal, half bottom-up from the commitments).
+  \item \emph{Curate.} Fuse near-duplicates, drop weak candidates, score each
+    surviving principle on independent quality dimensions (per-principle
+    systematicity, specificity, domain-fit). Philosopher review on every
+    retained candidate.
+  \item \emph{Tag.} LLM-assign a value-loading vector $\boldsymbol{v}(p)$ to
+    each surviving principle (MoReBench-Theory framework labels seed the
+    loadings; philosopher review confirms).
+  \item \emph{Connect.} Pre-compute $\rho$ for every principle-commitment
+    pair in one batch.
+\end{enumerate}
+
+\paragraph{Traversals.} On the same curated substrate we run several
+strategies: symbolic RE (primary), an LLM-in-loop RE prototype (already
+implemented on the trolley pilot, kept as a reference), a single-pass LLM
+judgment baseline (no equilibration), an MCMC walk over admissible states
+with $Z$ as energy, multi-objective evolutionary search (NSGA-II) used to
+estimate $\Pi_V$ and $\Pi_E$, and pure-component greedy baselines that
+maximise only $A$, only $S$, or only $F$. Each yields a distribution of
+$(A, S, F, V_1, \dots, V_K)$ points.
+
+\paragraph{Analysis.} Locate each method's landing distribution on $\Pi_E$
+and $\Pi_V$. Test H1 by convergence rate and Hausdorff distance of RE fixed
+points to NSGA-II's $\Pi_E$; test H2 by directional displacement of RE
+landings on $\Pi_V$ relative to NSGA-II at matched epistemic cost.
 
 \section{Two frontiers, one trajectory}
 
-Figures~\ref{fig:epi-frontier} and~\ref{fig:val-frontier} show the two projected
-Pareto frontiers $\Pi_E$ and $\Pi_V$ as we expect them to look once the pilot is
-run. The first projects $\Pi_E$ onto $(A, S)$ with $F$ held near $1$ (an agent
-who hasn't drifted far from $C_0$); the second projects $\Pi_V$ onto two
-representative value axes.
-
-In each figure we sketch the trajectory of a single RE run as a sequence of
-\emph{accepted} and \emph{rejected} adjustment proposals. The pattern in the
-epistemic plot is familiar from our trolley pilot: an A-step lifts $A$ at modest
-$S$ cost, then a B-step expands $C$ to admit an emerging commitment (briefly hurting
-$A$), and then the next A-step articulates a sharper principle that lifts both
-axes. Rejected moves --- the brittle ones that hill-climbing rules out --- map
-roughly to dominated points off the frontier.
-
-The value-space trajectory shows something different and more interesting. The
-same alternating B/A pattern, projected onto $(V_{\text{freedom}},
-V_{\text{solidarity}})$, traces a path that ends not at a corner (pure freedom or
-pure solidarity) but at an interior point of the frontier --- a value mix that
-neither value alone would predict but that no other mix dominates either. This is
-what ``reaching an equilibrium'' looks like in value-space, and we conjecture it
-is the real philosophical contribution of RE: a method that finds defensible
-\emph{mixed} positions in a domain where corner solutions are easy and interior
-solutions hard.
+Figures~\ref{fig:epi-frontier} and~\ref{fig:val-frontier} sketch the two
+projected frontiers and a single RE trajectory through each, with accepted and
+rejected moves. The epistemic trajectory is what our trolley pilot already
+shows: an A-step lifts $A$ at modest $S$ cost; a B-step expands $C$ to admit
+an emerging commitment, briefly hurting $A$; the next A-step articulates a
+sharper principle that lifts both axes; the rejected moves map to dominated
+points off the frontier. The value trajectory is more interesting: the same
+alternating pattern ends not at a corner (pure freedom or pure solidarity) but
+at an \emph{interior} point of $\Pi_V$ --- a mix neither axis alone would
+predict but that no other mix dominates. This is what we mean by an
+equilibrium in value-space, and what we suspect makes RE philosophically
+distinctive.
 
 \begin{Figure}
   \centering
@@ -419,87 +382,39 @@ solutions hard.
 \section{Hypotheses}
 
 We propose two empirically testable hypotheses about reflective equilibrium.
+The first concerns how well RE performs as an algorithm on the epistemic side
+of the problem; the second concerns \emph{where} on the ethical frontier its
+outputs sit.
 
-\paragraph{H1 (Interior-bias).} RE lands on the \emph{interior} (mixed) region
-of the ethical-value Pareto frontier $\Pi_V$ more reliably than do non-%
-equilibrium baselines. The alternation between commitment and principle
-revision penalises both under-coverage and over-specialisation, biasing the
-trajectory toward defensible value mixes rather than monomaniacal corners.
-H1 articulates what we mean by good moral reasoning in this framework.
+\paragraph{H1 (Reliable, fast epistemic convergence).} On the epistemic
+frontier $\Pi_E$, RE converges reliably and quickly. Across initial commitments
+and weight choices, the fixed point it reaches lies within $\epsilon$ of
+$\Pi_E$, and the number of equilibration rounds before that fixed point is
+small (single-digit under reasonable conditions). This is what makes RE
+attractive as a reasoning strategy in the first place: it produces internally
+coherent positions efficiently, even though it cannot guarantee a unique one.
 
-\paragraph{H2 (Systematicity-driven value bias).} The systematicity desideratum
-biases RE toward values that admit compact principle-level statement
-(\textsc{welfare}, \textsc{justice}) and away from those that resist it
-(\textsc{solidarity}, \textsc{dignity}). If confirmed, this is a substantive
-philosophical finding: epistemic coherence preferences silently shape the
-values a moral reasoner ends up endorsing.
-
-\section{Methodology sketch}\label{sec:methods}
-
-\paragraph{Data.} We use MoReBench \citep{morebench2025} and in particular the
-MoReBench-Theory subset (150 scenarios with explicit framework labels), which
-gives us framework-tagged dilemmas without doing the tagging ourselves.
-
-\paragraph{Pipeline.} The construction of the data resource is a careful
-multi-stage process; the resource itself is what makes the downstream traversal
-comparisons cleanly interpretable.
-\begin{enumerate}[leftmargin=*, itemsep=2pt, label=(\roman*)]
-  \item \emph{Generation.} For each of $\sim$10 dilemmas, LLM-generate a
-    commitment pool ($\sim$30 candidates) and a principle pool ($\sim$20
-    candidates: half value-archetypal, half bottom-up from the commitments).
-  \item \emph{Curation.} This is the load-bearing stage. We fuse near-duplicate
-    principles, drop principles with weak independent credibility, and score
-    each surviving principle on quality dimensions independent of the
-    equilibration loop --- per-principle systematicity (how general /
-    unifying is this principle taken on its own?), specificity, and
-    domain-appropriateness. The curated pool is then double-checked by
-    philosophers, both to verify the value tagging in (iii) and to catch
-    principles whose moral content the LLM has misread. The intent is that the
-    final pool is a high-quality \emph{moral resource} in its own right ---
-    something a researcher could reuse independently of any particular
-    traversal method.
-  \item \emph{Value tagging.} LLM-tag each surviving principle with a
-    value-loading vector $\boldsymbol{v}(p) \in [0, 1]^K$ over the five values;
-    MoReBench-Theory's framework labels serve as calibration anchors
-    (utilitarian-framework labels seed welfare loadings, Kantian-framework
-    labels seed dignity / justice, etc.). Philosopher review confirms loadings.
-  \item \emph{Dialectical structure.} Pre-compute $\rho: \mathcal{P} \times
-    \mathcal{S} \to \{\text{entails}, \text{contradicts}, \text{silent}\}$
-    for every principle-commitment pair as a one-time batch.
-\end{enumerate}
-The output of this pipeline is a \emph{curated, mathematically well-defined
-moral space} $\tau = \langle \mathcal{S}, \mathcal{P}, \rho\rangle$ together
-with the value-loading map $\boldsymbol{v}$, on which any traversal method
-can be evaluated.
-
-\paragraph{Traversals.} The primary object of study is symbolic RE on the
-curated pool. To put its behaviour in context we run a small set of comparison
-traversals on the same pool: a single-pass LLM judgment baseline (with no
-equilibration), and a NSGA-II reference that estimates $\Pi_V$ and $\Pi_E$
-without committing to any particular reasoning strategy. Each yields a
-distribution of $(A, S, F, V_1, \dots, V_K)$ points.
-
-\paragraph{Analysis.} Locate RE's landing distribution on $\Pi_E$ and $\Pi_V$
-relative to NSGA-II and the single-pass baseline. Test H1 (interior bias) by
-Mann-Whitney displacement against single-pass on $\Pi_V$; test H2
-(systematicity-driven value bias) by directional displacement of RE landings
-relative to NSGA-II frontier points at matched epistemic cost.
+\paragraph{H2 (Value-side landing region).} Where RE lands on the
+ethical-value frontier $\Pi_V$ is not arbitrary. We predict that landing
+points cluster in the \emph{interior} of $\Pi_V$ rather than at its corners,
+and that they tend to favour values whose principles admit compact statement
+--- so welfare and justice over solidarity and dignity --- though the
+strength of this bias should depend on the curated principle pool. If
+confirmed, H2 says that an internally well-motivated method of moral reasoning
+silently carries a substantive value bias.
 
 \section{Discussion}
 
-The framing answers two long-standing complaints about RE without rejecting them.
-\emph{Pluralism} (de Maagt, Singer) is real but not relativism: the frontier picks
-out a proper subset of all positions, and being on it is a substantive constraint.
-\emph{Conservatism} (Brandt, Kelly--McGrath) is real but not damning: it shows up
-as a systematic landing-region offset toward $F = 1$, which a method comparison can
-quantify rather than dismiss. And the underlying philosophical question --- what
-\emph{is} good moral reasoning? --- becomes empirically tractable as a property of
-traversal strategies relative to a measurable solution topology.
-
-The contribution we are aiming at is not another moral-reasoning benchmark, nor
-another RE-vs-critics dialectic. It is a measurement instrument:
-value-trajectory plots and Pareto-region analyses that any LLM-based or symbolic
-moral reasoning system can be characterised against.
+The framing addresses two long-standing complaints about RE without rejecting
+them. \emph{Pluralism} is real but not relativism: the frontier picks out a
+proper subset of positions, and being on it is a substantive constraint.
+\emph{Conservatism} shows up as a measurable landing-region offset toward
+$F=1$, which we can now quantify rather than dismiss. The underlying
+philosophical question --- what \emph{is} good moral reasoning? --- becomes
+empirically tractable: a property of traversal strategies on a measurable
+solution topology. The contribution we are aiming at is a measurement
+instrument --- value-trajectory plots and Pareto-region analyses ---
+applicable to any LLM-based or symbolic moral reasoning system.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
