@@ -60,8 +60,10 @@ question of moral reasoning from ``which position is right?'' to ``which
 strategy reliably finds positions on the frontier?''~--- and that the question
 favours \emph{equilibrium-style methods} that balance competing values, because
 without a ground truth the best a reasoner can do is settle on a defensible
-middle. We sketch a pilot using MoReBench dilemmas and an LLM-based reasoning
-system we have already prototyped.
+middle. We sketch a pilot using MoReBench dilemmas: we construct a curated,
+philosopher-verified pool of commitments, principles, value loadings, and
+inferential edges, then compare several algorithmic traversal strategies on
+the resulting space.
 \end{abstract}
 
 \begin{multicols}{2}
@@ -258,14 +260,22 @@ then review and correct.
     as a one-time batch.
 \end{enumerate}
 
-\paragraph{Traversals.} On the same curated substrate we run several
-strategies: symbolic RE (primary), an LLM-in-loop RE prototype (already
-implemented on the trolley pilot, kept as a reference), a single-pass LLM
-judgment baseline (no equilibration), an MCMC walk over admissible states
-with $Z$ as energy, multi-objective evolutionary search (NSGA-II) used to
-estimate $\Pi_V$ and $\Pi_E$, and pure-component greedy baselines that
-maximise only $A$, only $S$, or only $F$. Each yields a distribution of
-$(A, S, F, V_1, \dots, V_K)$ points.
+\paragraph{Traversals.} Because the entire pool is already LLM-generated and
+philosopher-verified, the strategies we compare are \emph{purely algorithmic
+operations} on the fixed substrate --- the LLM does no further work inside
+any of them. We run: symbolic RE (the primary strategy), an MCMC walk over
+admissible $(C, T)$ states with $Z$ as energy (a sampling baseline that
+characterises the distribution of decent positions without an equilibration
+bias), multi-objective evolutionary search (NSGA-II, used to estimate
+$\Pi_V$ and $\Pi_E$), and pure-component greedy baselines that maximise only
+$A$, only $S$, or only $F$ in turn. We sample initial commitments $C_0$ from
+the pool under several regimes (uniformly random, biased toward specific
+value mixes, and full-pool initialisation) to characterise how landing
+regions depend on starting point. Each method yields a distribution of
+$(A, S, F, V_1, \dots, V_K)$ points. An end-to-end LLM-in-loop pipeline
+that reasons directly without the curated pool --- the prototype we have
+already built on the trolley cases --- is a complementary downstream
+experiment for later work.
 
 \paragraph{Analysis.} Locate each method's landing distribution on $\Pi_E$
 and $\Pi_V$. Test H1 by convergence rate and Hausdorff distance of RE fixed
@@ -351,11 +361,11 @@ distinctive.
       \addplot[val, very thick, smooth, domain=0.05:0.95]
         {0.95 - x + 0.3*sin(deg(3.1416*x))};
       \addlegendentry{Pareto frontier (sampled)}
-      % corner-y theories (utility-dominated, Kant-dominated)
+      % pure-component greedy baselines (A-only, S-only, F-only) -- corner-leaning
       \addplot[only marks, mark=triangle*, mark size=2.5pt, onepass] coordinates {
-        (0.92, 0.08) (0.05, 0.88)
+        (0.92, 0.08) (0.05, 0.88) (0.55, 0.10)
       };
-      \addlegendentry{Single-pass LLM (varies by prompt)}
+      \addlegendentry{Pure-component greedy (corners)}
       % MCMC samples
       \addplot[only marks, mark=*, mark size=0.7pt, mcmc] coordinates {
         (0.50, 0.40) (0.65, 0.30) (0.45, 0.50) (0.30, 0.55) (0.70, 0.25)
@@ -377,10 +387,10 @@ distinctive.
     \end{axis}
   \end{tikzpicture}
   \captionof{figure}{\small \textbf{Ethical-value Pareto frontier.} Projection of
-    $V(T)$ onto $(V_{\text{freedom}}, V_{\text{solidarity}})$. Single-pass LLM
-    judgment collapses to corners depending on prompt. NSGA-II traces the
-    frontier. RE lands at an interior frontier point --- a defensibly mixed
-    normative profile.}
+    $V(T)$ onto $(V_{\text{freedom}}, V_{\text{solidarity}})$. Pure-component
+    greedy baselines collapse to corners; NSGA-II traces the frontier; RE
+    lands at an interior frontier point --- a defensibly mixed normative
+    profile.}
   \label{fig:val-frontier}
 \end{Figure}
 
