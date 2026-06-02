@@ -107,8 +107,9 @@ philosophers review every retained candidate. The curated pool is meant as
 a reusable resource in its own right.
 
 \paragraph{Pre-enumerated inferential connections.} For every principle-%
-commitment pair we pre-compute whether the principle entails the commitment,
-contradicts it, or is silent on it --- a fixed, philosopher-validated graph.
+commitment pair we LLM-generate whether the principle entails the commitment,
+contradicts it, or is silent on it; philosophers then review the resulting
+graph. The result is fixed before any reasoning strategy runs.
 
 \paragraph{Pre-tagged ethical values.} Each surviving principle carries a
 fuzzy value-loading vector distributing its weight across the five values.
@@ -249,8 +250,8 @@ load-bearing step:
   \item \emph{Tag.} LLM-assign a value-loading vector $\boldsymbol{v}(p)$ to
     each surviving principle (MoReBench-Theory framework labels seed the
     loadings; philosopher review confirms).
-  \item \emph{Connect.} Pre-compute $\rho$ for every principle-commitment
-    pair in one batch.
+  \item \emph{Connect.} LLM-judge $\rho$ for every principle-commitment
+    pair as a one-time batch; philosopher review confirms the graph.
 \end{enumerate}
 
 \paragraph{Traversals.} On the same curated substrate we run several
