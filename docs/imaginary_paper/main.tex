@@ -100,11 +100,11 @@ reasoning strategies as algorithms over it. Three ingredients combine.
 
 \paragraph{Pre-enumerated inputs.} Candidate case verdicts and candidate
 moral principles are pre-enumerated. We generate two finite pools from a
-dilemma source, then curate with explicit quality control: fuse
-near-duplicates, drop weak candidates, score each principle on quality
-dimensions (independent systematicity, specificity, domain-fit), and have
-philosophers review every retained candidate. The curated pool is meant as
-a reusable resource in its own right.
+dilemma source, then curate with explicit quality control: fusion of
+near-duplicates, dropping of weak candidates, and per-principle scoring on
+independent quality dimensions (systematicity, specificity, domain-fit).
+Every stage is \emph{LLM-first, philosopher-verified}. The curated pool is
+meant as a reusable resource in its own right.
 
 \paragraph{Pre-enumerated inferential connections.} For every principle-%
 commitment pair we LLM-generate whether the principle entails the commitment,
@@ -239,21 +239,23 @@ the labels as one calibration source for our value tagging; the loadings
 themselves are LLM-generated, as is the inferential graph.
 
 \paragraph{Pipeline.} The construction of the data resource is the
-load-bearing step:
+load-bearing step. \emph{Every stage is LLM-first and philosopher-verified}:
+LLMs produce proposals (commitments, principles, fusion candidates,
+deletions, quality scores, value loadings, inferential edges); philosophers
+then review and correct.
 \begin{enumerate}[leftmargin=*, itemsep=2pt, label=(\roman*)]
-  \item \emph{Generate.} For each of $\sim$10 dilemmas, LLM-generate a
-    commitment pool ($\sim$30 candidates) and a principle pool ($\sim$20
-    candidates, half value-archetypal, half bottom-up from the commitments).
-  \item \emph{Curate.} Fuse near-duplicates, drop weak candidates, score each
-    surviving principle on independent quality dimensions (per-principle
-    systematicity, specificity, domain-fit). Philosopher review on every
-    retained candidate.
-  \item \emph{Tag.} LLM-generate a value-loading vector $\boldsymbol{v}(p)$
-    for each surviving principle (where available, MoReBench-Theory framework
-    labels serve as a calibration anchor; otherwise tagging is bottom-up from
-    the principle's text). Philosopher review confirms.
-  \item \emph{Connect.} LLM-judge $\rho$ for every principle-commitment
-    pair as a one-time batch; philosopher review confirms the graph.
+  \item \emph{Generate.} For each of $\sim$10 dilemmas, produce a commitment
+    pool ($\sim$30 candidates) and a principle pool ($\sim$20 candidates,
+    half value-archetypal, half bottom-up from the commitments).
+  \item \emph{Curate.} Fuse near-duplicates, drop weak candidates, and score
+    each surviving principle on independent quality dimensions (per-principle
+    systematicity, specificity, domain-fit).
+  \item \emph{Tag.} Assign a value-loading vector $\boldsymbol{v}(p)$ to each
+    surviving principle, distributing its weight across the five values.
+    Where available, MoReBench-Theory framework labels serve as a calibration
+    anchor; otherwise tagging is bottom-up from the principle's text.
+  \item \emph{Connect.} Compute $\rho$ for every principle-commitment pair
+    as a one-time batch.
 \end{enumerate}
 
 \paragraph{Traversals.} On the same curated substrate we run several
