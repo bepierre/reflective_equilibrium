@@ -50,8 +50,8 @@ work with five --- \textsc{freedom}, \textsc{solidarity}, \textsc{justice},
 \textsc{welfare}, and \textsc{dignity} --- chosen so that the central
 tensions of moral life (liberty vs.\ community, fairness vs.\ welfare,
 welfare vs.\ dignity) appear directly as trade-offs among axes. The secondary
-axes are \emph{epistemic} measures of internal coherence, drawn from the formal
-account of \citet{beisbart2021}: account, systematicity, and faithfulness.
+axes are \emph{epistemic} measures of internal coherence: account,
+systematicity, and faithfulness.
 Every reachable position occupies a point in this joint space, and the
 rational object of study is its \emph{Pareto frontier}: the set of attainable
 positions for which no other position is at least as good on every axis and
@@ -234,8 +234,9 @@ We include this analysis in the pilot.
 \section{Methodology sketch}\label{sec:methods}
 
 \paragraph{Data.} We use the MoReBench-Theory subset
-\citep{morebench2025}: 150 scenarios with explicit framework labels, which
-serve as anchors for our value tagging.
+\citep{morebench2025}: 150 scenarios with explicit framework labels. We use
+the labels as one calibration source for our value tagging; the loadings
+themselves are LLM-generated, as is the inferential graph.
 
 \paragraph{Pipeline.} The construction of the data resource is the
 load-bearing step:
@@ -247,9 +248,10 @@ load-bearing step:
     surviving principle on independent quality dimensions (per-principle
     systematicity, specificity, domain-fit). Philosopher review on every
     retained candidate.
-  \item \emph{Tag.} LLM-assign a value-loading vector $\boldsymbol{v}(p)$ to
-    each surviving principle (MoReBench-Theory framework labels seed the
-    loadings; philosopher review confirms).
+  \item \emph{Tag.} LLM-generate a value-loading vector $\boldsymbol{v}(p)$
+    for each surviving principle (where available, MoReBench-Theory framework
+    labels serve as a calibration anchor; otherwise tagging is bottom-up from
+    the principle's text). Philosopher review confirms.
   \item \emph{Connect.} LLM-judge $\rho$ for every principle-commitment
     pair as a one-time batch; philosopher review confirms the graph.
 \end{enumerate}
