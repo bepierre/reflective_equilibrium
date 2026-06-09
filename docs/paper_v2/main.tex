@@ -116,7 +116,6 @@ and where values trade off, the trade-off the state strikes should be one
 the agent can stand behind. We make these two families precise in
 Section~\ref{sec:good}.
 
-\paragraph{Reasoning moves as typed operations.}
 Reaching a good $\sigma$ involves recognisable operations on $C$ and $P$.
 We propose a candidate list of typed primitives, each with an
 input-output signature that makes it addressable as a unit of evaluation
@@ -345,14 +344,6 @@ fail to reach it). Reflective equilibrium is one trajectory among several.
   \label{fig:trajectories}
 \end{figure}
 
-\paragraph{Reasoning traces.} A reasoning trace is a finite sequence
-$\sigma_0, \sigma_1, \dots, \sigma_n$ of epistemic states linked by moves
-of the kinds enumerated in Section~\ref{sec:concept}. The trace has a
-\emph{shape} in the joint space, and each move has a characteristic
-contribution. Principle proposal typically lifts \textsc{Account} and
-\textsc{Systematicity} together. Commitment revision trades
-\textsc{Faithfulness} for \textsc{Account}. Principle revision trades
-\textsc{Systematicity} for \textsc{Account}, or one value for another.
 
 \paragraph{Vocabulary for the shape of the frontier.} Different ethical
 situations, and sets of situations grouped into a context or domain,
@@ -508,29 +499,27 @@ visualises this landscape.
       legend style={font=\footnotesize, at={(0.02,0.02)}, anchor=south west,
         draw=none, fill=white, fill opacity=0.85},
     ]
-      \addplot[orange!80!black, very thick, smooth, domain=0.05:0.95]
-        {0.9 - 0.85*x^1.8};
+      \addplot[orange!80!black, very thick, smooth, domain=0.04:0.96]
+        {0.9 - 0.88*sqrt(x)};
       \addlegendentry{Pareto frontier $\Pi_V$ (medication case)}
-      \addplot[only marks, mark=*, mark size=2pt, blue!60!black] coordinates {
-        (0.78, 0.30) (0.25, 0.78)
+      \addplot[only marks, mark=*, mark size=2.5pt, blue!60!black] coordinates {
+        (0.08, 0.65) (0.82, 0.10)
       };
       \addlegendentry{Defensible responses (concave segment)}
-      \addplot[only marks, mark=star, mark size=3pt, purple] coordinates {(0.55, 0.60)};
-      \addlegendentry{Interior knee point (natural compromise)}
       \addplot[only marks, mark=x, mark size=3pt, gray] coordinates {
-        (0.2, 0.2) (0.5, 0.1) (0.1, 0.5)
+        (0.2, 0.2) (0.5, 0.1) (0.1, 0.3)
       };
       \addlegendentry{Dominated (bad reasoning)}
-      \node[font=\scriptsize, anchor=west] at (axis cs:0.80, 0.32) {autonomy-leaning};
-      \node[font=\scriptsize, anchor=south] at (axis cs:0.25, 0.82) {care-leaning};
-      \node[font=\scriptsize, anchor=west] at (axis cs:0.57, 0.62) {knee};
+      \node[font=\scriptsize, anchor=south west] at (axis cs:0.08, 0.66) {care-leaning};
+      \node[font=\scriptsize, anchor=north east] at (axis cs:0.82, 0.09) {autonomy-leaning};
     \end{axis}
   \end{tikzpicture}
   \caption{Sketch of the ethical-value Pareto frontier in the medication
-    case, projected onto \textsc{freedom} and \textsc{well-being}. Two
-    defensibly different responses sit on a concave segment; an interior
-    knee point captures a natural compromise; several reachable responses
-    are strictly dominated.}
+    case, projected onto \textsc{freedom} and \textsc{well-being}. The
+    frontier is concave between the two defensible responses: weighted
+    sums of the two axes favour the endpoints, and the segment between
+    them is the locus of genuine pluralism. Several reachable responses
+    sit strictly inside the dominated region.}
   \label{fig:medication}
 \end{figure}
 
@@ -539,17 +528,26 @@ visualises this landscape.
 \label{sec:strategies}
 
 If moral reasoning aims at the frontier, the natural follow-up question is
-\emph{how an agent gets there}. Reflective equilibrium is the
-philosopher-favoured answer, but it is one strategy among several. We
-sketch the space of strategies and the primitives they share.
+\emph{how an agent gets there}. A strategy produces a \emph{reasoning
+trace}: a finite sequence $\sigma_0, \sigma_1, \dots, \sigma_n$ of
+epistemic states linked by the typed operations of
+Section~\ref{sec:concept}. Each move has a characteristic contribution to
+the axes: principle proposal typically lifts \textsc{account} and
+\textsc{systematicity} together; commitment revision trades
+\textsc{faithfulness} for \textsc{account}; principle revision trades
+\textsc{systematicity} for \textsc{account}, or one value for another.
+Reflective equilibrium is the philosopher-favoured strategy, but it is
+one among several. We sketch the space of strategies and the primitives
+they share.
 
 \paragraph{Shared primitives.} Any strategy that walks toward $\Pi$ composes
-the typed operations introduced in Section~\ref{sec:concept}: principle
-proposal, principle deduction, commitment revision, principle revision, and
-coherence checking. Strategies differ in \emph{how} they sequence and
-compose these primitives, but the primitives themselves are the capacities
-an artificial moral reasoner must possess. For evaluating such a reasoner,
-the primitives are the natural unit of analysis.
+the typed operations introduced in Section~\ref{sec:concept}: property
+elicitation, principle proposal, principle deduction, coherence checking,
+and (for dialectical strategies) commitment and principle revision.
+Strategies differ in \emph{how} they sequence and compose these
+primitives, but the primitives themselves are the capacities an artificial
+moral reasoner must possess. For evaluating such a reasoner, the
+primitives are the natural unit of analysis.
 
 \paragraph{Reflective equilibrium.} Beginning from the initial commitments
 $C_0$ and an arbitrary $P$, alternate revisions of $P$ and $C$, each step
