@@ -659,39 +659,41 @@ $C_0$ drawn from $\mathcal{C}$, the corpus lets us:
 \section{What this lets us study}
 \label{sec:study}
 
-The framework, combined with such a corpus, opens several lines of empirical
-work that are difficult to pose otherwise.
+With the framework and a corpus in place, three families of empirical
+question become tractable: questions about the moral domain itself,
+questions about how reasoning strategies behave, and questions about how
+language models in particular reason morally.
 
-\paragraph{The geometry of moral disagreement.} For a given case, is the
+\paragraph{The geometry of the moral domain.} For a given case, is the
 local shape of $\Pi$ convex (resolvable disagreement) or concave (genuine
-pluralism)? Does the case admit a knee point (a natural compromise)? Across
-many cases, what shapes recur, and what does that tell us about the
-structure of the moral domain?
+pluralism)? Does the case admit a knee point (a natural compromise)?
+Across many cases, what shapes recur, and what does that tell us about
+the structure of the moral domain itself?
 
-\paragraph{Strategy comparison.} Do different reasoning strategies reach
+\paragraph{Comparing reasoning strategies.} Do different strategies reach
 different regions of $\Pi$ on the same case? Does reflective equilibrium
 land in plateaus while sample-and-prune maps concave segments? Which
-strategy is more robust under reframing of the case?
+strategy is more robust under reframing of the case? The corpus puts
+strategies on equal footing, replacing incommensurable benchmarks with a
+common measurable space.
 
-\paragraph{LLM moral reasoning.} A value-aligned model whose traces sit
-off $\Pi$ in characteristic ways is a value-aligned model that reasons
-badly, and the framework lets us name how. Specific failure modes
-become diagnosable: \emph{corner collapse} (the trace ends at an axis
-extreme), \emph{anti-revision rigidity} (no move revises the principle
-side), \emph{faithfulness violations} (commitments dropped with no
-justifying gain), \emph{stability collapse} (different landings under
-semantically equivalent rephrasings of the situation). These are
-empirically testable hypotheses about LLM behaviour, but they only become
-testable once the framework names them.
+\paragraph{LLM failure modes at the trace level.} A value-aligned model
+whose traces sit off $\Pi$ in characteristic ways is a value-aligned
+model that reasons badly, and the framework lets us name how:
+\emph{corner collapse} (the trace ends at an axis extreme),
+\emph{anti-revision rigidity} (no move revises the principle side),
+\emph{faithfulness violations} (commitments dropped with no justifying
+gain), \emph{stability collapse} (different landings under semantically
+equivalent rephrasings of the situation). Each becomes an empirically
+testable hypothesis about LLM behaviour once the framework names it.
 
-\paragraph{Capacities of artificial moral reasoners.} If the typed
-operations of Section~\ref{sec:concept} are the irreducible capacities of
-moral reasoning, then the natural question for any artificial reasoner is
-which of those capacities it has and at what quality. Per-primitive
-diagnostics on the corpus (Section~\ref{sec:corpus}) give a more
-fine-grained picture than aggregate trace-level behaviour, and may reveal
-that a model competent at proposing principles is weak at revising them
-under counterevidence, or vice versa.
+\paragraph{LLM capacities at the primitive level.} The typed operations of
+Section~\ref{sec:concept} are candidate irreducible capacities of moral
+reasoning. The corpus lets us probe each in isolation: which capacities
+does the model have, and at what quality? Per-primitive diagnostics give
+a finer-grained picture than trace-level analyses, and may reveal that a
+model competent at proposing principles is weak at revising them under
+counterevidence, or vice versa.
 
 
 \section{Discussion}
