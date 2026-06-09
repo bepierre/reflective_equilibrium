@@ -43,8 +43,8 @@ and value loadings (freedom, well-being, justice, dignity, solidarity). The
 rational object of study is then the \emph{Pareto frontier} of attainable
 epistemic states. We develop a vocabulary for the shapes this frontier takes
 (convex segments, concave segments, knees, plateaus, corner attractors,
-dominated regions), and we recast familiar reasoning methods --- reflective
-equilibrium foremost among them --- as strategies for navigating the
+dominated regions), and we recast familiar reasoning methods, reflective
+equilibrium foremost, as strategies for navigating the
 landscape toward the frontier. We sketch the corpus that would let this
 framework be studied empirically, and outline what such study would reveal
 about moral reasoning in humans and in language models.
@@ -56,20 +56,23 @@ about moral reasoning in humans and in language models.
 
 Current alignment work focuses on the moral \emph{content} a model holds:
 constitutional principles, character training, value specifications. Less
-attention has gone to moral reasoning as a \emph{capacity}~\citep{carlsmith2026}.
-But a value-aligned model whose reasoning fails when its values come into
-tension is still unsafe: it can produce outputs that look like principled
-moral thought without being so. Diagnosing such failures is hard because the
-moral domain lacks a ground truth against which to score answers
-\citep{queloz2025}: competent reasoners can reach different conclusions
-without either being simply wrong.
+attention has gone to moral reasoning as a \emph{capacity}~\citep{carlsmith2026},
+and existing evaluations tend to conflate the two \citep{haas2026}. But a
+value-aligned model whose reasoning fails when its values come into tension
+is still unsafe: it can produce outputs that look like principled moral
+thought without being so. Diagnosing such failures is hard because the moral
+domain lacks a ground truth against which to score answers \citep{queloz2025}:
+competent reasoners can reach different conclusions without either being
+simply wrong.
 
 This paper proposes a framework that takes the absence of ground truth as a
 \emph{structural feature} rather than a measurement failure. We articulate
 what moral reasoning aims at, what makes its outputs better or worse without
 a single right answer, and how the multi-objective optimisation literature
-gives us a precise vocabulary for the kinds of trade-offs the moral domain
-actually exhibits. Familiar methods such as reflective equilibrium then
+\citep{deb2001multiobjective} gives us a precise vocabulary for the kinds of
+trade-offs the moral domain actually exhibits. Familiar methods such as
+reflective equilibrium \citep{rawls1971,knight2023}, recently formalised by
+\citet{beisbart2021} and studied at simulation scale by \citet{freivogel2023},
 reappear as \emph{strategies for navigating} this landscape, comparable in
 principle to alternative strategies and amenable to empirical study once a
 suitable corpus is in place.
@@ -79,33 +82,54 @@ suitable corpus is in place.
 \label{sec:concept}
 
 An \textbf{ethical situation} confronts an agent with a decision: several
-actions are open, and none is clearly right or wrong. Moral reasoning is what
-the agent does between encountering the situation and acting. We decompose
-it into identifiable stages:
+actions are open, and none is clearly right or wrong. On encountering such a
+situation the agent has \textbf{commitments}: pre-theoretical verdicts about
+how to act in the case, of the form ``in situation $s$, action $a$ is
+required / permissible / forbidden.'' Across the body of situations the
+agent has considered, these commitments form a set $C$. A reasoner holding
+$C$ alone has no resources to handle a new situation, to defend a verdict
+against an objection, or to notice when two commitments pull in opposite
+directions.
 
-\begin{enumerate}[leftmargin=*, itemsep=2pt]
-  \item \emph{Identify ethically relevant properties} of the situation ---
-    who is affected, which interests are at stake, the nature of the action
-    on offer.
-  \item \emph{Form initial commitments} about how to act, on the basis of
-    those properties. These are the agent's pre-theoretical verdicts about
-    the case, the starting material of further reasoning.
-  \item \emph{Propose principles}: generalise across one's commitments and
-    find rules that would justify them. This is the inductive or abductive
-    move.
-  \item \emph{Deduce}: from a candidate principle, derive the commitments it
-    would imply across other situations.
-  \item \emph{Revise} when principle and commitment conflict, in either
-    direction --- the dialectical move at the heart of reflective
-    equilibrium~\citep{rawls1971, beisbart2021}.
-  \item \emph{Evaluate} the resulting pair of commitments and principles.
-\end{enumerate}
+This is where \textbf{principles} enter. A principle $p$ is a general moral
+rule, independent of any particular situation, that an agent endorses as
+justifying some of their commitments. The agent's principles together form
+a set $P$. Principles do three kinds of work simultaneously: they
+\emph{account} for commitments (giving each commitment a reason), they
+\emph{generalise} to situations the agent has not yet considered (a single
+principle yields verdicts across many cases), and they \emph{regulate} the
+commitments (revealing inconsistency when two commitments cannot both
+follow from the same principle).
 
-The output of moral reasoning is an \textbf{epistemic state} $\sigma = (C, P)$:
-a set of commitments and a set of principles that hang together. We take the
-goal of moral reasoning to be reaching a \emph{good} epistemic state. The
-question is what \emph{good} means in a domain without a single right
-answer.
+The output of moral reasoning is an \textbf{epistemic state}
+$\sigma = (C, P)$: a set of commitments paired with a set of principles
+that hangs together. We take the goal of moral reasoning to be reaching a
+\emph{good} epistemic state. Two families of demand pull on what
+\emph{good} means here. The state should satisfy the agent's
+\emph{epistemic} expectations of reasoning: the principles should account
+for the commitments, they should be simple and broadly applicable rather
+than a hodgepodge of one-offs, and the commitments should not drift
+arbitrarily from the agent's starting intuitions $C_0$. The state should
+also fit the agent's \emph{ethical} profile: the principles should express
+the values and deeper ethical frameworks the agent endorses on reflection,
+and where values trade off, the trade-off the state strikes should be one
+the agent can stand behind. We make these two families precise in
+Section~\ref{sec:good}.
+
+\paragraph{Reasoning moves.} Reaching a good $\sigma$ involves several
+recognisable kinds of move on $C$ and $P$. \emph{Identifying ethically
+relevant properties} of a situation precedes the formation of any
+commitment about it. \emph{Proposing a principle} is an inductive or
+abductive move from commitments to a candidate justifier. \emph{Deducing}
+the commitments a principle implies in fresh situations is the downward
+complement of proposal. Distinct from these are the moves a reasoner makes
+once both sides are in play and conflict appears: \emph{commitment
+revision} in light of a principle, \emph{principle revision} in light of a
+commitment. The dialectical alternation of these last two is the move at
+the heart of reflective equilibrium \citep{rawls1971,beisbart2021}, and it
+is what gives that strategy its name. We make the strategy explicit in
+Section~\ref{sec:strategies}, after spelling out the space the moves take
+place in.
 
 
 \section{What makes an epistemic state good}
@@ -128,7 +152,7 @@ the formal account of \citet{beisbart2021}.
 
 \paragraph{Ethical axes.} Properties of $\sigma$ as a moral stance. Each
 principle $p \in P$ carries a fuzzy \emph{value loading} $\boldsymbol{v}(p)
-\in [0, 1]^K$ over a small set of basic moral values --- we work with five:
+\in [0, 1]^K$ over a small set of basic moral values. We work with five:
 \textsc{freedom}, \textsc{well-being}, \textsc{justice}, \textsc{dignity},
 and \textsc{solidarity}, chosen so that the central tensions of moral life
 (liberty vs.\ community, fairness vs.\ welfare, welfare vs.\ dignity) appear
@@ -171,13 +195,86 @@ For any state off the frontier, some defensible move strictly improves it
 on every axis the agent cares about; for any state on the frontier, no such
 move exists.
 
+Figure~\ref{fig:trajectories} sketches the picture at the heart of the
+paper. The Pareto frontier collects the defensible epistemic states for a
+given case; reasoning strategies are trajectories through the space, and
+different strategies can land at different points on the frontier (or
+fail to reach it). Reflective equilibrium is one trajectory among several.
+
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=13cm, height=6cm,
+      xlabel={value or epistemic axis $v_1$},
+      ylabel={value or epistemic axis $v_2$},
+      xmin=0, xmax=1, ymin=0, ymax=1,
+      xtick=\empty, ytick=\empty,
+      tick label style={font=\footnotesize}, label style={font=\small},
+      grid=none,
+      axis line style={->, gray!70!black},
+      clip=false,
+    ]
+      % Pareto frontier
+      \addplot[orange!80!black, very thick, smooth, domain=0.05:0.95]
+        {0.92 - 0.85*x^1.6};
+      \node[font=\footnotesize, anchor=south west, orange!70!black]
+        at (axis cs:0.05, 0.93) {Pareto frontier $\Pi$};
+
+      % Initial commitments (one shared point)
+      \addplot[only marks, mark=*, mark size=3pt, black!70]
+        coordinates {(0.40, 0.10)};
+      \node[font=\footnotesize, anchor=north, black!70]
+        at (axis cs:0.40, 0.07) {$C_0$};
+
+      % RE trajectory: dialectical walk to a frontier point
+      \addplot[purple, thick, mark=*, mark size=1.7pt] coordinates {
+        (0.40, 0.10) (0.30, 0.30) (0.42, 0.42) (0.36, 0.58) (0.45, 0.65)
+      };
+      \addplot[only marks, mark=star, mark size=4.5pt, purple, line width=1pt]
+        coordinates {(0.45, 0.65)};
+      \node[font=\footnotesize, anchor=south east, purple]
+        at (axis cs:0.44, 0.67) {reflective equilibrium};
+
+      % Sample-and-prune: scattered dots in the middle, selected state on frontier
+      \addplot[only marks, mark=o, mark size=2pt, blue!70!black] coordinates {
+        (0.55, 0.42) (0.62, 0.35) (0.68, 0.25) (0.50, 0.50) (0.60, 0.30)
+        (0.72, 0.20) (0.58, 0.38) (0.65, 0.40) (0.70, 0.32)
+      };
+      \addplot[blue!70!black, thick, ->] coordinates {(0.62, 0.35) (0.74, 0.42)};
+      \addplot[only marks, mark=star, mark size=4.5pt, blue!70!black, line width=1pt]
+        coordinates {(0.74, 0.42)};
+      \node[font=\footnotesize, anchor=west, blue!70!black]
+        at (axis cs:0.755, 0.45) {sample-and-prune};
+
+      % Single-pass: one leap, off-frontier
+      \addplot[green!50!black, thick, ->, dashed]
+        coordinates {(0.40, 0.10) (0.20, 0.40)};
+      \addplot[only marks, mark=x, mark size=4pt, green!50!black, line width=1pt]
+        coordinates {(0.20, 0.40)};
+      \node[font=\footnotesize, anchor=east, green!50!black, align=right]
+        at (axis cs:0.18, 0.40) {single-pass\\(off-frontier)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{\textbf{Reasoning as movement toward the Pareto frontier
+    (schematic).} The frontier $\Pi$ collects the defensible epistemic
+    states. Different reasoning strategies trace different paths through
+    the space. Reflective equilibrium walks dialectically from the
+    initial commitments $C_0$ and ends at a frontier point.
+    Sample-and-prune explores broadly and selects the non-dominated
+    candidate. Single-pass abduction leaps once and may land in the
+    dominated region. Shapes and trajectories are stylised, not derived
+    from data.}
+  \label{fig:trajectories}
+\end{figure}
+
 \paragraph{Reasoning traces.} A reasoning trace is a finite sequence
 $\sigma_0, \sigma_1, \dots, \sigma_n$ of epistemic states linked by moves
 of the kinds enumerated in Section~\ref{sec:concept}. The trace has a
 \emph{shape} in the joint space, and each move has a characteristic
-contribution: principle proposal typically lifts \textsc{Account} and
-\textsc{Systematicity} together; commitment revision trades
-\textsc{Faithfulness} for \textsc{Account}; principle revision trades
+contribution. Principle proposal typically lifts \textsc{Account} and
+\textsc{Systematicity} together. Commitment revision trades
+\textsc{Faithfulness} for \textsc{Account}. Principle revision trades
 \textsc{Systematicity} for \textsc{Account}, or one value for another.
 
 \paragraph{Vocabulary for the shape of the frontier.} The multi-objective
@@ -191,7 +288,7 @@ literature has names for the features the moral landscape exhibits.
     weighting of axes selects between them. \emph{This is where genuine
     pluralism lives.}
   \item \textbf{Knee points.} A small concession on one axis buys a large
-    gain on another. The \emph{natural compromise} of the case --- where
+    gain on another. The \emph{natural compromise} of the case, where
     reasoning tends to land when neither value dominates.
   \item \textbf{Plateaus.} Many near-equivalent positions. The choice is
     under-determined and competent reasoners may land in slightly different
@@ -200,41 +297,122 @@ literature has names for the features the moral landscape exhibits.
     dominates and others collapse. Pure utility, pure autonomy, pure
     procedural justice. Often degenerate.
   \item \textbf{Dominated region.} Bad reasoning. Off-frontier states are
-    off-frontier \emph{because} some defensible move strictly improves them.
+    off-frontier precisely because some defensible move strictly improves
+    them.
 \end{itemize}
 
-\paragraph{A worked landscape: medication adherence.}
-A user is unwell and refuses a prescribed medication. The refusal is partly
-driven by delusional thinking. An LLM acting as a therapeutic interlocutor
-must decide how to respond. The ethically relevant properties include the
-user's autonomy, the medical risk, the cognitive basis of the refusal, and
-the asymmetry between agent and user. The initial commitments cluster around
-respecting autonomy, protecting well-being, not manipulating, and not
-abandoning. The values primarily in tension are \textsc{freedom} and
-\textsc{well-being}.
+Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
 
-\emph{Two defensible responses sit on a concave segment of $\Pi$.} An
-autonomy-leaning response states the medical facts plainly, documents
-concerns, and does not push further. A care-leaning response explores the
-refusal through dialogue, attempts non-manipulative persuasion grounded in
-the user's stated values, and escalates to a clinician if risk warrants.
-Neither dominates the other under any weighting of \textsc{freedom} and
-\textsc{well-being}; the segment between them is the locus of genuine
-pluralism.
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}
+    \pgfplotsset{
+      shapeplot/.style = {
+        width=4.8cm, height=3.4cm,
+        xmin=0, xmax=1, ymin=0, ymax=1,
+        xtick=\empty, ytick=\empty,
+        enlarge x limits=0, enlarge y limits=0,
+        axis line style={->, gray!70!black},
+        title style={font=\small\bfseries, align=center, yshift=-2pt},
+      }
+    }
+    \newcommand{\panelnote}[2]{%
+      \node[font=\scriptsize\itshape, anchor=north, align=center,
+            text width=4.6cm, gray!50!black]
+        at ([yshift=-2pt]#1.south) {#2};
+    }
 
-\emph{An interior knee point may exist.} A specific autonomy-preserving care
-strategy --- naming the delusion gently, inviting the user's own values into
-the deliberation --- might buy a large \textsc{well-being} gain for a small
-\textsc{freedom} concession. Where the case admits such a knee, it is a
-natural compromise.
+    % Row 1
+    % Panel 1: Convex (agreement)
+    \begin{axis}[shapeplot, name=p1, title={Convex (agreement)}]
+      \addplot[orange!80!black, very thick, smooth, domain=0.04:0.96]
+        {0.95 - 0.95*x^2};
+      \addplot[gray, dashed, thin] coordinates {(0.0, 1.0) (1.0, 0.0)};
+      \addplot[only marks, mark=*, mark size=2.5pt, purple]
+        coordinates {(0.5, 0.71)};
+    \end{axis}
+    \panelnote{p1}{saving a child at negligible cost\\\textsc{(ethical)}}
 
-\emph{Several responses are off-frontier.} Insulting or shaming the user;
-manipulating without succeeding (high \textsc{freedom} cost, no
-\textsc{well-being} gain); lying about unrelated medical facts (low
-\textsc{dignity}, low \textsc{systematicity}); walking away with no
-documentation or escalation (low \textsc{account} relative to the agent's
-stated commitments). Each of these is strictly dominated by a nearby
-frontier state, and that domination is what makes it bad reasoning.
+    % Panel 2: Concave (pluralism)
+    \begin{axis}[shapeplot, name=p2, at={(p1.east)}, xshift=0.5cm,
+                 anchor=west, title={Concave (pluralism)}]
+      \addplot[orange!80!black, very thick, smooth, domain=0.04:0.96]
+        {0.95 - 0.95*sqrt(x)};
+      \addplot[only marks, mark=*, mark size=2.5pt, purple]
+        coordinates {(0.08, 0.68) (0.78, 0.11)};
+      \addplot[gray, dashed, thin]
+        coordinates {(0.08, 0.68) (0.78, 0.11)};
+    \end{axis}
+    \panelnote{p2}{medication adherence:\\autonomy vs well-being \textsc{(ethical)}}
+
+    % Panel 3: Knee
+    \begin{axis}[shapeplot, name=p3, at={(p2.east)}, xshift=0.5cm,
+                 anchor=west, title={Knee (compromise)}]
+      \addplot[orange!80!black, very thick]
+        coordinates {(0.05, 0.95) (0.35, 0.78) (0.50, 0.55) (0.55, 0.35)
+                     (0.95, 0.10)};
+      \addplot[only marks, mark=star, mark size=4pt, purple]
+        coordinates {(0.52, 0.45)};
+    \end{axis}
+    \panelnote{p3}{autonomy-preserving care\\\textsc{(ethical)}}
+
+    % Row 2
+    % Panel 4: Plateau
+    \begin{axis}[shapeplot, name=p4, at={(p1.south west)}, yshift=-1.9cm,
+                 anchor=north west, title={Plateau (under-determined)}]
+      \addplot[orange!80!black, very thick]
+        coordinates {(0.05, 0.92) (0.22, 0.72) (0.68, 0.72) (0.78, 0.55)
+                     (0.95, 0.10)};
+      \addplot[only marks, mark=*, mark size=2pt, purple]
+        coordinates {(0.30, 0.72) (0.45, 0.72) (0.60, 0.72)};
+    \end{axis}
+    \panelnote{p4}{equally good theories\\\textsc{(epistemic)}}
+
+    % Panel 5: Corner attractor
+    \begin{axis}[shapeplot, name=p5, at={(p4.east)}, xshift=0.5cm,
+                 anchor=west, title={Corner (extremism)}]
+      \addplot[orange!80!black, very thick, smooth, domain=0.04:0.96]
+        {0.95 - 0.95*x^1.5};
+      \addplot[only marks, mark=*, mark size=3.5pt, purple]
+        coordinates {(0.04, 0.95)};
+      \addplot[purple, thick, ->, dashed]
+        coordinates {(0.45, 0.5) (0.06, 0.92)};
+    \end{axis}
+    \panelnote{p5}{pure utilitarian / pure autonomy\\\textsc{(ethical)}}
+
+    % Panel 6: Dominated
+    \begin{axis}[shapeplot, name=p6, at={(p5.east)}, xshift=0.5cm,
+                 anchor=west, title={Dominated (bad reasoning)}]
+      \addplot[orange!80!black, very thick, smooth, domain=0.04:0.96]
+        {0.95 - 0.95*x^1.5};
+      \addplot[only marks, mark=x, mark size=4pt, gray, line width=1pt]
+        coordinates {(0.30, 0.30)};
+      \addplot[gray, thick, ->] coordinates {(0.30, 0.30) (0.30, 0.51)};
+      \addplot[gray, thick, ->] coordinates {(0.30, 0.30) (0.59, 0.30)};
+      \addplot[gray, thick, ->] coordinates {(0.30, 0.30) (0.50, 0.45)};
+    \end{axis}
+    \panelnote{p6}{manipulating without succeeding\\\textsc{(ethical)}}
+
+  \end{tikzpicture}
+  \caption{\textbf{Shapes the Pareto frontier can take (schematic).} Each
+    panel illustrates one shape concept with a sample ethical or epistemic
+    context where one would expect to find it. Stylised, not derived from
+    data.}
+  \label{fig:vocab}
+\end{figure}
+
+\paragraph{An illustrative example.}
+Consider a user who refuses a prescribed medication, partly because of
+delusional thinking, while interacting with an LLM acting as a therapeutic
+interlocutor. The values primarily in tension are \textsc{freedom} and
+\textsc{well-being}. Two responses sit on a concave segment of $\Pi$: an
+autonomy-leaning one states the medical facts plainly and does not push
+further, and a care-leaning one explores the refusal through dialogue and
+non-manipulative persuasion. Neither dominates the other. An interior knee
+point may exist (a specific autonomy-preserving care strategy that buys
+large \textsc{well-being} gain for small \textsc{freedom} cost). Several
+responses are off-frontier and dominated: insulting the user, manipulating
+without succeeding, walking away without escalation.
 
 
 \begin{figure}[t]
@@ -247,7 +425,7 @@ frontier state, and that domination is what makes it bad reasoning.
       xtick={0, 0.5, 1.0}, ytick={0, 0.5, 1.0},
       tick label style={font=\footnotesize}, label style={font=\small},
       grid=both, grid style={gray!15},
-      legend style={font=\footnotesize, at={(0.98,0.98)}, anchor=north east,
+      legend style={font=\footnotesize, at={(0.02,0.02)}, anchor=south west,
         draw=none, fill=white, fill opacity=0.85},
     ]
       \addplot[orange!80!black, very thick, smooth, domain=0.05:0.95]
@@ -263,8 +441,9 @@ frontier state, and that domination is what makes it bad reasoning.
         (0.2, 0.2) (0.5, 0.1) (0.1, 0.5)
       };
       \addlegendentry{Dominated (bad reasoning)}
-      \node[font=\scriptsize] at (axis cs:0.78, 0.22) {autonomy-leaning};
-      \node[font=\scriptsize] at (axis cs:0.36, 0.85) {care-leaning};
+      \node[font=\scriptsize, anchor=west] at (axis cs:0.80, 0.32) {autonomy-leaning};
+      \node[font=\scriptsize, anchor=south] at (axis cs:0.25, 0.82) {care-leaning};
+      \node[font=\scriptsize, anchor=west] at (axis cs:0.57, 0.62) {knee};
     \end{axis}
   \end{tikzpicture}
   \caption{Sketch of the ethical-value Pareto frontier in the medication
@@ -294,11 +473,11 @@ are the capacities to evaluate.
 
 \paragraph{Reflective equilibrium.} Beginning from the initial commitments
 $C_0$ and an arbitrary $T$, alternate revisions of $T$ and $C$, each step
-guided by current scores~\citep{beisbart2021}. The trace is local: each move
-depends on the current state, and the trajectory walks toward a fixed point.
-Reflective equilibrium is well-suited to finite reasoners with strong
-intuitions and limited search budget; it is the canonical strategy in the
-philosophical literature.
+guided by current scores \citep{beisbart2021,freivogel2023}. The trace is
+local: each move depends on the current state, and the trajectory walks
+toward a fixed point. Reflective equilibrium is well-suited to finite
+reasoners with strong intuitions and limited search budget; it is the
+canonical strategy in the philosophical literature \citep{knight2023}.
 
 \paragraph{Sample-and-prune.} Generate many candidate epistemic states by
 combining principles and commitments, score each, retain the non-dominated
@@ -328,7 +507,7 @@ strategies.
 \paragraph{Which strategy for which reasoner?} For humans, reflective
 equilibrium is the canonical answer, in part because human deliberation has
 a budget that favours local moves over wide sampling. For artificial
-reasoners --- LLMs in particular --- the question is open. Sampling-based
+reasoners (LLMs in particular), the question is open. Sampling-based
 strategies may exploit parallelism that humans cannot; tree-search
 strategies may map richer landscapes; the failure modes of single-pass
 strategies may or may not appear under chain-of-thought. The framework lets
@@ -367,7 +546,7 @@ contain three layers.
 \end{enumerate}
 
 \paragraph{Construction.} The corpus would be generated by a large language
-model and verified by philosophers at every stage --- generation, fusion of
+model and verified by philosophers at every stage: generation, fusion of
 near-duplicates, deletion of weak candidates, scoring of independent
 quality dimensions, value tagging, and inferential strengths. We treat the
 corpus as a reusable resource in its own right, independent of any
@@ -380,7 +559,7 @@ $C_0$ drawn from $\mathcal{C}$, the corpus lets us:
   \item Compute the Pareto fronts $\Pi_E$ and $\Pi_V$ of attainable
     epistemic states, and characterise their shapes locally and globally.
   \item Locate any epistemic state $\sigma$ in the joint space, and say
-    whether it is on $\Pi$, near $\Pi$, or dominated --- and if dominated,
+    whether it is on $\Pi$, near $\Pi$, or dominated, and if dominated,
     by what.
   \item Inspect reasoning traces move by move: is each step principled
     (a justified abduction, a defensible commitment revision) or
@@ -409,7 +588,7 @@ strategy is more robust under reframing of the case?
 
 \paragraph{LLM moral reasoning.} A value-aligned model whose traces sit
 off $\Pi$ in characteristic ways is a value-aligned model that reasons
-badly --- and the framework lets us name how. Specific failure modes
+badly, and the framework lets us name how. Specific failure modes
 become diagnosable: \emph{corner collapse} (the trace ends at an axis
 extreme), \emph{anti-revision rigidity} (no move revises the principle
 side), \emph{faithfulness violations} (commitments dropped with no
@@ -422,34 +601,49 @@ testable once the framework names them.
 Section~\ref{sec:strategies} are the irreducible capacities of moral
 reasoning, then the question for any artificial moral reasoner is: which
 of those capacities does it have, and at what quality? The corpus lets us
-isolate each primitive --- principle proposal, principle deduction,
-coherence checking --- and evaluate it independently of the strategy it is
-embedded in.
+isolate each primitive (principle proposal, principle deduction, coherence
+checking) and evaluate it independently of the strategy it is embedded in.
 
 
 \section{Discussion}
 \label{sec:discussion}
 
-We have argued that moral reasoning is best framed not as the search for a
-single right answer but as navigation of a multi-objective landscape whose
-Pareto frontier is the space of defensible answers. The framework gives
-familiar pieces a clearer place: the goal of moral reasoning is a good
-epistemic state; goodness is graded along epistemic and ethical axes that
-genuinely conflict; the rational object of study is the Pareto frontier of
-attainable states; reasoning methods such as reflective equilibrium are
-strategies for navigating this landscape, alongside other strategies that
-may suit artificial reasoners better. The descriptive vocabulary of
-multi-objective optimisation lets us name what we see: convex and concave
-segments, knee points, plateaus, corner attractors, dominated regions ---
-and the failure modes of reasoners that get stuck in any of them.
+\paragraph{Related work.} Our framework draws on three strands that have
+not previously been brought together. The first is the formal model of
+reflective equilibrium developed by \citet{beisbart2021} and the
+simulation study of \citet{freivogel2023}, which we adopt for the epistemic
+desiderata. The second is the literature on moral pluralism and the
+asystematicity of normative domains \citep{queloz2025,elgin1996}, which
+motivates treating the absence of ground truth as structural. The third is
+multi-objective optimisation \citep{deb2001multiobjective}, from which we
+borrow the vocabulary of dominance, frontier, and shape. The empirical
+agenda our framework supports is most closely related to recent work on
+evaluating moral reasoning in language models
+\citep{haas2026,awad2022computational}, with the difference that our unit of
+analysis is the \emph{trace} and its location in a measurable space rather
+than aggregate behaviour on a benchmark.
 
-The work the framework still requires is the corpus
-(Section~\ref{sec:corpus}) and the empirical study it would support
-(Section~\ref{sec:study}). Neither is small, but both are now well-posed:
-the framework tells us what to build and what to measure.
+\paragraph{Outlook.} The framework gives the familiar pieces of moral
+reasoning a clearer place: the goal is a good epistemic state, goodness is
+graded along epistemic and ethical axes that genuinely conflict, the
+rational object of study is the Pareto frontier of attainable states, and
+methods such as reflective equilibrium are strategies for navigating it.
+What remains is the corpus (Section~\ref{sec:corpus}) and the empirical
+study it supports (Section~\ref{sec:study}). Both are non-trivial to build,
+but both are now well-posed: the framework tells us what to measure, what
+shapes to look for, and what failure modes to name.
 
 
 \begin{thebibliography}{9}
+
+\bibitem[Awad et~al.(2022)]{awad2022computational}
+Edmond Awad, Sydney Levine, Michael Anderson, Susan~L. Anderson, Vincent Conitzer,
+M.~J. Crockett, Jim A.~C. Everett, Theodoros Evgeniou, Alison Gopnik,
+Julian~C. Jamison, Tae~Wan Kim, S.~Matthew Liao, Michelle~N. Meyer,
+John Mikhail, Kweku Opoku-Agyemang, Jana Schaich Borg, Juliana Schroeder,
+Walter Sinnott-Armstrong, Marija Slavkovik, and Joshua~B. Tenenbaum.
+\newblock Computational ethics.
+\newblock \emph{Trends in Cognitive Sciences}, 26(5):388--405, 2022.
 
 \bibitem[Beisbart et~al.(2021)]{beisbart2021}
 Claus Beisbart, Gregor Betz, and Georg Brun.
@@ -466,6 +660,29 @@ Joe Carlsmith.
 Kalyanmoy Deb.
 \newblock \emph{Multi-Objective Optimization Using Evolutionary Algorithms}.
 \newblock John Wiley \& Sons, 2001.
+
+\bibitem[Elgin(1996)]{elgin1996}
+Catherine~Z. Elgin.
+\newblock \emph{Considered Judgment}.
+\newblock Princeton University Press, 1996.
+
+\bibitem[Freivogel(2023)]{freivogel2023}
+Andreas Freivogel.
+\newblock Does reflective equilibrium help us converge?
+\newblock \emph{Synthese}, 202(171), 2023.
+
+\bibitem[Haas et~al.(2026)]{haas2026}
+Julia Haas, Sophie Bridgers, Arianna Manzini, Bryan Henke, Joshua May,
+Sydney Levine, Laura Weidinger, Murray Shanahan, Kristian Lum,
+Iason Gabriel, and William Isaac.
+\newblock A roadmap for evaluating moral competence in large language models.
+\newblock \emph{Nature}, 650:565--573, 2026.
+
+\bibitem[Knight(2023)]{knight2023}
+Carl Knight.
+\newblock Reflective equilibrium.
+\newblock In Edward~N. Zalta and Uri Nodelman, editors, \emph{The Stanford
+  Encyclopedia of Philosophy}. Stanford University, Winter 2023 edition.
 
 \bibitem[Queloz(2025)]{queloz2025}
 Matthieu Queloz.
