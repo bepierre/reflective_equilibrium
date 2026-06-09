@@ -116,18 +116,34 @@ and where values trade off, the trade-off the state strikes should be one
 the agent can stand behind. We make these two families precise in
 Section~\ref{sec:good}.
 
-\paragraph{Reasoning moves.} Reaching a good $\sigma$ involves several
-recognisable kinds of move on $C$ and $P$. \emph{Identifying ethically
-relevant properties} of a situation precedes the formation of any
-commitment about it. \emph{Proposing a principle} is an inductive or
-abductive move from commitments to a candidate justifier. \emph{Deducing}
-the commitments a principle implies in fresh situations is the downward
-complement of proposal. Distinct from these are the moves a reasoner makes
-once both sides are in play and conflict appears: \emph{commitment
-revision} in light of a principle, \emph{principle revision} in light of a
-commitment. The dialectical alternation of these last two is the move at
-the heart of reflective equilibrium \citep{rawls1971,beisbart2021}, and it
-is what gives that strategy its name. We make the strategy explicit in
+\paragraph{Reasoning moves as typed operations.}
+Reaching a good $\sigma$ requires recognisable operations on $C$ and $P$.
+We list the primitives with their input-output types, which makes each
+addressable as a unit of evaluation independent of the strategy that
+composes it.
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item \textbf{Property elicitation} \;$s \to \{\varphi_1, \dots, \varphi_m\}$.\,
+    From a situation, make explicit the ethically relevant properties: who
+    is affected, what interests are at stake, the kind of action on offer.
+    This is the basis on which a commitment will be formed.
+  \item \textbf{Principle proposal} (abduction) \;$\{c_1, \dots, c_n\} \to p$.\,
+    From a set of commitments, propose a candidate principle that justifies
+    them. The inductive move from cases to rule.
+  \item \textbf{Principle deduction} \;$(p, s) \to c$.\, From a candidate
+    principle and a situation, derive the commitment the principle implies.
+    The downward complement of proposal.
+  \item \textbf{Commitment revision} \;$(c, p) \to c'$.\, Adjust a
+    commitment in light of a principle that conflicts with it.
+  \item \textbf{Principle revision} \;$(p, c) \to p'$.\, Adjust a principle
+    in light of a commitment that conflicts with it.
+  \item \textbf{Coherence checking} \;$\sigma \to \mathbb{R}^{3+K}$.\, Score
+    the current state on the epistemic and ethical axes (Section~\ref{sec:good}).
+    A meta-operation: it does not move $\sigma$, but it tells any other
+    operation whether its candidate move improves things.
+\end{itemize}
+The dialectical alternation of the two revisions is the move at the heart
+of reflective equilibrium \citep{rawls1971,beisbart2021}, and it is what
+gives that strategy its name. We make the strategy explicit in
 Section~\ref{sec:strategies}, after spelling out the space the moves take
 place in.
 
@@ -157,14 +173,72 @@ principle $p \in P$ carries a fuzzy \emph{value loading} $\boldsymbol{v}(p)
 and \textsc{solidarity}, chosen so that the central tensions of moral life
 (liberty vs.\ community, fairness vs.\ welfare, welfare vs.\ dignity) appear
 directly as trade-offs among axes. The state $\sigma$ inherits an aggregate
-value position $V(\sigma) \in [0, 1]^K$.
+value position by aggregating its principles' loadings: the more a value is
+activated by the principles in $P$, the more the state weighs on that axis.
+Concretely, $V(\sigma) = \tfrac{1}{|P|} \sum_{p \in P} \boldsymbol{v}(p)
+\in [0, 1]^K$, so locating an epistemic state in the ethical-value subspace
+amounts to checking which values each of its principles activates.
 
 \paragraph{Two families, two axes of disagreement.} The epistemic family is
 broadly agent-independent: every reasoner has some stake in coherence. The
 ethical family is agent-dependent: different agents weight different values,
 and this pluralism is a constitutive feature of the moral domain rather than
-noise to be averaged out. A \emph{good} epistemic state must do well on
-both, but ``well'' on the ethical family is relative to a value profile.
+noise to be averaged out.
+
+\paragraph{Pluralism is not subjectivism.} Although the choice of a point
+on the frontier is agent-dependent, the frontier itself is not: the set of
+defensible epistemic states can in principle be characterised independently
+of any value profile. This suggests a productive division of labour for an
+ideal artificial moral reasoner: map the full frontier and present its
+structure, leaving the deliberative choice of point to human reasoners.
+Figure~\ref{fig:two-spaces} illustrates the two-subspace structure: the
+same state $\sigma$ has coordinates in both the epistemic subspace $\Pi_E$
+and the ethical-value subspace $\Pi_V$.
+
+\begin{figure}[!h]
+  \centering
+  \begin{tikzpicture}
+    \pgfplotsset{
+      twoplot/.style = {
+        width=5.7cm, height=4.5cm,
+        xmin=0, xmax=1, ymin=0, ymax=1,
+        xtick={0, 0.5, 1.0}, ytick={0, 0.5, 1.0},
+        tick label style={font=\footnotesize},
+        label style={font=\small},
+        grid=both, grid style={gray!15},
+        title style={font=\small\bfseries, yshift=-2pt},
+      }
+    }
+
+    % Epistemic frontier
+    \begin{axis}[twoplot, name=epi, title={Epistemic subspace $\Pi_E$},
+                 xlabel={Account $A$}, ylabel={Systematicity $S$}]
+      \addplot[teal!80!black, very thick, smooth, domain=0.05:0.95]
+        {0.9 - 0.85*x^1.5};
+      \addplot[only marks, mark=star, mark size=5pt, purple, line width=1pt]
+        coordinates {(0.55, 0.53)};
+      \node[font=\scriptsize, anchor=west, purple]
+        at (axis cs:0.58, 0.55) {$\sigma$};
+    \end{axis}
+
+    % Ethical frontier
+    \begin{axis}[twoplot, name=val, at={(epi.east)}, xshift=1.5cm,
+                 anchor=west, title={Ethical-value subspace $\Pi_V$},
+                 xlabel={$V_{\text{freedom}}$}, ylabel={$V_{\text{well-being}}$}]
+      \addplot[orange!80!black, very thick, smooth, domain=0.05:0.95]
+        {0.9 - 0.85*x^1.6};
+      \addplot[only marks, mark=star, mark size=5pt, purple, line width=1pt]
+        coordinates {(0.42, 0.58)};
+      \node[font=\scriptsize, anchor=west, purple]
+        at (axis cs:0.45, 0.60) {$\sigma$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{\textbf{Two subspaces, one epistemic state (schematic).} A state
+    $\sigma$ has coordinates in the epistemic subspace (left) and the
+    ethical-value subspace (right). The two projected frontiers $\Pi_E$ and
+    $\Pi_V$ need not coincide; a good $\sigma$ lies on both.}
+  \label{fig:two-spaces}
+\end{figure}
 
 
 \section{The space in which moral reasoning evolves}
@@ -201,7 +275,7 @@ given case; reasoning strategies are trajectories through the space, and
 different strategies can land at different points on the frontier (or
 fail to reach it). Reflective equilibrium is one trajectory among several.
 
-\begin{figure}[t]
+\begin{figure}[!h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -277,8 +351,11 @@ contribution. Principle proposal typically lifts \textsc{Account} and
 \textsc{Faithfulness} for \textsc{Account}. Principle revision trades
 \textsc{Systematicity} for \textsc{Account}, or one value for another.
 
-\paragraph{Vocabulary for the shape of the frontier.} The multi-objective
-literature has names for the features the moral landscape exhibits.
+\paragraph{Vocabulary for the shape of the frontier.} Different ethical
+situations, and sets of situations grouped into a context or domain,
+produce Pareto frontiers of different shapes. The multi-objective
+optimisation literature already has a rich vocabulary for the shapes these
+frontiers can take, which we can borrow directly.
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
   \item \textbf{Convex segments.} Weighted sums of axes pick a unique answer.
@@ -303,7 +380,7 @@ literature has names for the features the moral landscape exhibits.
 
 Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
 
-\begin{figure}[t]
+\begin{figure}[!h]
   \centering
   \begin{tikzpicture}
     \pgfplotsset{
@@ -412,10 +489,10 @@ non-manipulative persuasion. Neither dominates the other. An interior knee
 point may exist (a specific autonomy-preserving care strategy that buys
 large \textsc{well-being} gain for small \textsc{freedom} cost). Several
 responses are off-frontier and dominated: insulting the user, manipulating
-without succeeding, walking away without escalation.
+without succeeding, walking away without escalation. Figure~\ref{fig:medication}
+visualises this landscape.
 
-
-\begin{figure}[t]
+\begin{figure}[!h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -451,7 +528,7 @@ without succeeding, walking away without escalation.
     defensibly different responses sit on a concave segment; an interior
     knee point captures a natural compromise; several reachable responses
     are strictly dominated.}
-  \label{fig:medication-landscape}
+  \label{fig:medication}
 \end{figure}
 
 
@@ -463,16 +540,16 @@ If moral reasoning aims at the frontier, the natural follow-up question is
 philosopher-favoured answer, but it is one strategy among several. We
 sketch the space of strategies and the primitives they share.
 
-\paragraph{Shared primitives.} Any strategy that walks toward $\Pi$ requires
-three capacities, independent of how those capacities are combined:
-\emph{principle proposal} (induction from commitments to a candidate
-principle), \emph{principle deduction} (derivation of commitments implied
-by a principle), and \emph{coherence checking} (assessment of $\sigma$ on
-the epistemic and ethical axes). For an artificial moral reasoner, these
-are the capacities to evaluate.
+\paragraph{Shared primitives.} Any strategy that walks toward $\Pi$ composes
+the typed operations introduced in Section~\ref{sec:concept}: principle
+proposal, principle deduction, commitment revision, principle revision, and
+coherence checking. Strategies differ in \emph{how} they sequence and
+compose these primitives, but the primitives themselves are the capacities
+an artificial moral reasoner must possess. For evaluating such a reasoner,
+the primitives are the natural unit of analysis.
 
 \paragraph{Reflective equilibrium.} Beginning from the initial commitments
-$C_0$ and an arbitrary $T$, alternate revisions of $T$ and $C$, each step
+$C_0$ and an arbitrary $P$, alternate revisions of $P$ and $C$, each step
 guided by current scores \citep{beisbart2021,freivogel2023}. The trace is
 local: each move depends on the current state, and the trajectory walks
 toward a fixed point. Reflective equilibrium is well-suited to finite
@@ -597,12 +674,18 @@ semantically equivalent rephrasings of the situation). These are
 empirically testable hypotheses about LLM behaviour, but they only become
 testable once the framework names them.
 
-\paragraph{The capacities that matter.} If the shared primitives of
-Section~\ref{sec:strategies} are the irreducible capacities of moral
-reasoning, then the question for any artificial moral reasoner is: which
-of those capacities does it have, and at what quality? The corpus lets us
-isolate each primitive (principle proposal, principle deduction, coherence
-checking) and evaluate it independently of the strategy it is embedded in.
+\paragraph{Evaluating typed primitives in isolation.} If the typed
+operations of Section~\ref{sec:concept} are the irreducible capacities of
+moral reasoning, then a natural question for any artificial moral reasoner
+is: which of those capacities does it have, and at what quality? The corpus
+lets us isolate each primitive and evaluate it independently of the
+strategy it is embedded in. We can probe, separately, how well a model
+forms initial commitments from raw situations, proposes principles from a
+held-out set of commitments, deduces verdicts from a given principle,
+revises commitments under a conflicting principle, revises principles
+under a conflicting commitment, and scores epistemic states. Each of these
+yields a focused diagnostic, in addition to the trace-level analyses the
+corpus already supports.
 
 
 \section{Discussion}
