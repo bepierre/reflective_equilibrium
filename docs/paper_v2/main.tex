@@ -643,6 +643,13 @@ $C_0$ drawn from $\mathcal{C}$, the corpus lets us:
     unprincipled (a faithfulness violation with no compensating gain)?
     Does the trajectory walk toward $\Pi$ or away from it?
   \item Compare reasoning strategies on equal footing.
+  \item \emph{Evaluate each typed primitive of
+    Section~\ref{sec:concept} in isolation.} Given the dialectical graph
+    and the value loadings, we can score how well a model proposes
+    principles from a held-out set of commitments, deduces verdicts from
+    a given principle, revises a commitment under a conflicting principle,
+    and so on, without committing to any particular composition of these
+    primitives.
 \end{itemize}
 
 
@@ -674,18 +681,14 @@ semantically equivalent rephrasings of the situation). These are
 empirically testable hypotheses about LLM behaviour, but they only become
 testable once the framework names them.
 
-\paragraph{Evaluating typed primitives in isolation.} If the typed
+\paragraph{Capacities of artificial moral reasoners.} If the typed
 operations of Section~\ref{sec:concept} are the irreducible capacities of
-moral reasoning, then a natural question for any artificial moral reasoner
-is: which of those capacities does it have, and at what quality? The corpus
-lets us isolate each primitive and evaluate it independently of the
-strategy it is embedded in. We can probe, separately, how well a model
-forms initial commitments from raw situations, proposes principles from a
-held-out set of commitments, deduces verdicts from a given principle,
-revises commitments under a conflicting principle, revises principles
-under a conflicting commitment, and scores epistemic states. Each of these
-yields a focused diagnostic, in addition to the trace-level analyses the
-corpus already supports.
+moral reasoning, then the natural question for any artificial reasoner is
+which of those capacities it has and at what quality. Per-primitive
+diagnostics on the corpus (Section~\ref{sec:corpus}) give a more
+fine-grained picture than aggregate trace-level behaviour, and may reveal
+that a model competent at proposing principles is weak at revising them
+under counterevidence, or vice versa.
 
 
 \section{Discussion}
