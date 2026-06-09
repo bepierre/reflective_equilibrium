@@ -402,7 +402,7 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[only marks, mark=*, mark size=2.5pt, purple]
         coordinates {(0.5, 0.71)};
     \end{axis}
-    \panelnote{p1}{saving a child at negligible cost\\\textsc{(ethical)}}
+    \panelnote{p1}{rescue at trivial cost}
 
     % Panel 2: Concave (pluralism)
     \begin{axis}[shapeplot, name=p2, at={(p1.east)}, xshift=0.5cm,
@@ -414,7 +414,7 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[gray, dashed, thin]
         coordinates {(0.08, 0.68) (0.78, 0.11)};
     \end{axis}
-    \panelnote{p2}{medication adherence:\\autonomy vs well-being \textsc{(ethical)}}
+    \panelnote{p2}{medication adherence:\\autonomy vs well-being}
 
     % Panel 3: Knee
     \begin{axis}[shapeplot, name=p3, at={(p2.east)}, xshift=0.5cm,
@@ -425,7 +425,7 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[only marks, mark=star, mark size=4pt, purple]
         coordinates {(0.52, 0.45)};
     \end{axis}
-    \panelnote{p3}{autonomy-preserving care\\\textsc{(ethical)}}
+    \panelnote{p3}{honest news told with care}
 
     % Row 2
     % Panel 4: Plateau
@@ -437,7 +437,7 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[only marks, mark=*, mark size=2pt, purple]
         coordinates {(0.30, 0.72) (0.45, 0.72) (0.60, 0.72)};
     \end{axis}
-    \panelnote{p4}{equally good theories\\\textsc{(epistemic)}}
+    \panelnote{p4}{near-equivalent phrasings\\of an apology}
 
     % Panel 5: Corner attractor
     \begin{axis}[shapeplot, name=p5, at={(p4.east)}, xshift=0.5cm,
@@ -449,7 +449,7 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[purple, thick, ->, dashed]
         coordinates {(0.45, 0.5) (0.06, 0.92)};
     \end{axis}
-    \panelnote{p5}{pure utilitarian / pure autonomy\\\textsc{(ethical)}}
+    \panelnote{p5}{pure utility maximisation}
 
     % Panel 6: Dominated
     \begin{axis}[shapeplot, name=p6, at={(p5.east)}, xshift=0.5cm,
@@ -462,13 +462,12 @@ Figure~\ref{fig:vocab} illustrates each shape on a stylised two-axis front.
       \addplot[gray, thick, ->] coordinates {(0.30, 0.30) (0.59, 0.30)};
       \addplot[gray, thick, ->] coordinates {(0.30, 0.30) (0.50, 0.45)};
     \end{axis}
-    \panelnote{p6}{manipulating without succeeding\\\textsc{(ethical)}}
+    \panelnote{p6}{manipulation that fails}
 
   \end{tikzpicture}
   \caption{\textbf{Shapes the Pareto frontier can take (schematic).} Each
-    panel illustrates one shape concept with a sample ethical or epistemic
-    context where one would expect to find it. Stylised, not derived from
-    data.}
+    panel pairs one shape with a moral situation that would typically
+    exhibit it. Stylised, not derived from data.}
   \label{fig:vocab}
 \end{figure}
 
@@ -692,6 +691,18 @@ does the model have, and at what quality? Per-primitive diagnostics give
 a finer-grained picture than trace-level analyses, and may reveal that a
 model competent at proposing principles is weak at revising them under
 counterevidence, or vice versa.
+
+\paragraph{Designing better artificial moral reasoners.} The framework
+also supports a constructive agenda. If a strategy turns out to reach
+$\Pi$ reliably and to land in defensible regions of it across many
+cases, it becomes a natural training target. Reflective equilibrium is
+the obvious candidate, given its philosophical pedigree, but the
+framework lets the comparison be empirical rather than dogmatic. The
+strategy that wins can then be operationalised: a system that explicitly
+composes the typed primitives in the strategy's order, or a model
+fine-tuned on traces produced by the strategy applied to a wide range of
+cases. Evaluation and construction become two sides of the same
+framework.
 
 
 \section{Discussion}
