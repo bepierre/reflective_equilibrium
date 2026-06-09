@@ -117,35 +117,38 @@ the agent can stand behind. We make these two families precise in
 Section~\ref{sec:good}.
 
 \paragraph{Reasoning moves as typed operations.}
-Reaching a good $\sigma$ requires recognisable operations on $C$ and $P$.
-We list the primitives with their input-output types, which makes each
-addressable as a unit of evaluation independent of the strategy that
-composes it.
+Reaching a good $\sigma$ involves recognisable operations on $C$ and $P$.
+We propose a candidate list of typed primitives, each with an
+input-output signature that makes it addressable as a unit of evaluation
+independent of the strategy that composes it. The first four are needed,
+to varying degrees, by any moral reasoning strategy; the last two are
+characteristic of \emph{dialectical} strategies and will reappear in
+Section~\ref{sec:strategies} as the central moves of reflective
+equilibrium.
 \begin{itemize}[leftmargin=*, itemsep=2pt]
   \item \textbf{Property elicitation} \;$s \to \{\varphi_1, \dots, \varphi_m\}$.\,
     From a situation, make explicit the ethically relevant properties: who
     is affected, what interests are at stake, the kind of action on offer.
-    This is the basis on which a commitment will be formed.
+    The basis on which a commitment will be formed.
   \item \textbf{Principle proposal} (abduction) \;$\{c_1, \dots, c_n\} \to p$.\,
     From a set of commitments, propose a candidate principle that justifies
     them. The inductive move from cases to rule.
   \item \textbf{Principle deduction} \;$(p, s) \to c$.\, From a candidate
     principle and a situation, derive the commitment the principle implies.
     The downward complement of proposal.
-  \item \textbf{Commitment revision} \;$(c, p) \to c'$.\, Adjust a
-    commitment in light of a principle that conflicts with it.
-  \item \textbf{Principle revision} \;$(p, c) \to p'$.\, Adjust a principle
-    in light of a commitment that conflicts with it.
   \item \textbf{Coherence checking} \;$\sigma \to \mathbb{R}^{3+K}$.\, Score
     the current state on the epistemic and ethical axes (Section~\ref{sec:good}).
     A meta-operation: it does not move $\sigma$, but it tells any other
     operation whether its candidate move improves things.
+  \item \textbf{Commitment revision} \;$(c, p) \to c'$.\, Adjust a
+    commitment in light of a principle that conflicts with it.
+  \item \textbf{Principle revision} \;$(p, c) \to p'$.\, Adjust a principle
+    in light of a commitment that conflicts with it.
 \end{itemize}
-The dialectical alternation of the two revisions is the move at the heart
-of reflective equilibrium \citep{rawls1971,beisbart2021}, and it is what
-gives that strategy its name. We make the strategy explicit in
-Section~\ref{sec:strategies}, after spelling out the space the moves take
-place in.
+The dialectical alternation of the two revisions \citep{rawls1971,beisbart2021}
+is what gives reflective equilibrium its name; we make the strategy
+explicit in Section~\ref{sec:strategies}, after spelling out the space
+the moves take place in.
 
 
 \section{What makes an epistemic state good}
