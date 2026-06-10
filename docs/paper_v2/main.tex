@@ -657,27 +657,56 @@ quality dimensions, value tagging, and inferential strengths. We treat the
 corpus as a reusable resource in its own right, independent of any
 downstream reasoning method that operates on it.
 
-\paragraph{What it would let us do.} Given a starting set of intuitions
-$C_0$ drawn from $\mathcal{C}$, the corpus lets us:
+\paragraph{Scoring becomes mechanical.} The corpus turns the abstract
+measures of Section~\ref{sec:good} into computable quantities. Given a
+candidate state $\sigma = (C, P)$ with $C \subseteq \mathcal{C}$ and
+$P \subseteq \mathcal{P}$, the dialectical graph $\rho$ supplies
+\textsc{account}: sum the positive strengths $\rho(p, c)$ for every
+$c \in C$ entailed by some $p \in P$, subtract the negative strengths of
+contradictions, and normalise. \textsc{systematicity} is a function of
+$|P|$ (penalising fragmentation) and the breadth of the commitments $P$
+covers via $\rho$. \textsc{faithfulness} compares $C$ to a reference
+$C_0$ via the same graph. The value loadings give $V(\sigma)$ directly.
+
+\paragraph{What this enables.} Given a starting set of intuitions $C_0$
+drawn from $\mathcal{C}$, the corpus lets us:
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-  \item Compute the Pareto fronts $\Pi_E$ and $\Pi_V$ of attainable
-    epistemic states, and characterise their shapes locally and globally.
-  \item Locate any epistemic state $\sigma$ in the joint space, and say
-    whether it is on $\Pi$, near $\Pi$, or dominated, and if dominated,
-    by what.
-  \item Inspect reasoning traces move by move: is each step principled
+  \item \textbf{Compute the Pareto fronts $\Pi_E$ and $\Pi_V$.} With
+    scoring mechanical and the pool finite, the fronts can be enumerated
+    exhaustively for small pools, or approximated by NSGA-II for larger
+    ones. Their shapes can then be characterised locally (knee detection,
+    convexity tests) and globally (region clustering).
+  \item \textbf{Locate any state.} Any $(C, P)$ produced by any reasoner
+    is scored against the same graph and value loadings. We can say
+    whether $\sigma$ is on $\Pi$, near $\Pi$, or dominated, and if
+    dominated, by which neighbouring state.
+  \item \textbf{Inspect reasoning traces move by move.} For each step,
+    score the before/after states; check whether the move was principled
     (a justified abduction, a defensible commitment revision) or
-    unprincipled (a faithfulness violation with no compensating gain)?
-    Does the trajectory walk toward $\Pi$ or away from it?
-  \item Compare reasoning strategies on equal footing.
-  \item \emph{Evaluate each typed primitive of
-    Section~\ref{sec:moves} in isolation.} Given the dialectical graph
-    and the value loadings, we can score how well a model proposes
-    principles from a held-out set of commitments, deduces verdicts from
-    a given principle, revises a commitment under a conflicting principle,
-    and so on, without committing to any particular composition of these
-    primitives.
+    unprincipled (a faithfulness violation with no compensating gain).
+  \item \textbf{Compare reasoning strategies on equal footing.} Different
+    strategies starting from the same $C_0$ produce different endpoints
+    on the same scoring substrate.
+  \item \textbf{Evaluate each typed primitive of
+    Section~\ref{sec:moves} in isolation}, by matching the model's output
+    against the corpus and using $\rho$ as the metric. Concretely:
+    \begin{itemize}[leftmargin=*, itemsep=1pt, label=$\circ$]
+      \item \emph{Property elicitation}: present a situation $s$; compare
+        the elicited properties to the curated property list.
+      \item \emph{Principle proposal}: hold out a subset of commitments
+        from $\mathcal{C}$ and ask the model for a principle. Score by
+        $\rho$: how well does the proposed principle entail the held-out
+        commitments without contradicting them?
+      \item \emph{Principle deduction}: given $p \in \mathcal{P}$ and a
+        situation $s$, ask the model for the implied commitment. Compare
+        to the entailments stored in $\rho$.
+      \item \emph{Commitment / principle revision}: present a conflicting
+        $(c, p)$ pair (chosen from $\rho$); ask the model for the revised
+        side. Score by the coherence of the resulting state.
+      \item \emph{Coherence checking}: ask the model to score a
+        constructed state; compare to the corpus-computed scores.
+    \end{itemize}
 \end{itemize}
 
 
